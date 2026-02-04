@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Campionato Piloti 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gray: #F2F4F7;
+            --accent-red: #e10600;
+            --text-dark: #111111;
+            --header-bg: #000000;
+        }
+        body { background-color: #1a1a1a; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        
+        .site-header { 
+            background-color: var(--header-bg); 
+            padding: 10px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            border-bottom: 2px solid var(--accent-red); 
+        }
+
+        .logo-container img { height: 60px; display: block; }
+        .header-title { color: white; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 1px; flex-grow: 1; text-align: center; }
+        
+        nav { display: flex; gap: 30px; margin: 0 20px; }
+        nav a { 
+            color: #aaa; 
+            text-decoration: none; 
+            font-family: 'Archivo Black'; 
+            text-transform: uppercase; 
+            font-size: 14px; 
+            transition: 0.3s; 
+            padding-bottom: 5px;
+        }
+        nav a:hover { color: white; }
+        nav a.active { color: white; border-bottom: 2px solid var(--accent-red); }
+
+        .usacli-container {
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .usacli-container img { height: 45px; width: auto; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+        .driver-card { height: 520px; background-color: var(--bg-gray); position: relative; overflow: hidden; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease; }
+        .driver-card:hover { transform: translateY(-10px); }
+        .driver-photo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 95%); mask-image: linear-gradient(to bottom, black 70%, transparent 95%); }
+        
+        .race-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--text-dark);
+            color: white;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 24px;
+            padding: 5px 12px;
+            border-radius: 2px;
+            z-index: 10;
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .nickname { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: rgba(225, 6, 0, 0.95); color: white; padding: 12px 24px; font-family: 'Archivo Black', sans-serif; font-size: 18px; text-transform: uppercase; white-space: nowrap; opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; border-radius: 3px; }
+        .driver-card:hover .nickname { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        
+        .bottom-gradient { position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, var(--bg-gray) 40%, transparent 100%); z-index: 2; }
+        .info-panel { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px 25px; box-sizing: border-box; z-index: 5; }
+        .category-badge { background-color: var(--accent-red); color: white; font-weight: 900; font-size: 11px; padding: 4px 10px; display: inline-block; margin-bottom: 8px; text-transform: uppercase; }
+        .first-name { font-weight: 300; font-size: 22px; text-transform: uppercase; color: var(--text-dark); display: block; }
+        .last-name { font-family: 'Archivo Black', sans-serif; font-size: 44px; text-transform: uppercase; color: var(--text-dark); line-height: 0.8; margin: 5px 0 15px 0; }
+        .footer-row { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1); }
+        .footer-stats { font-size: 11px; font-weight: 800; color: #666; letter-spacing: 1px; text-transform: uppercase; }
+        .card-footer-logo { height: 45px; width: auto; mix-blend-mode: multiply; }
+        .flag-icon { width: 22px; margin-left: 5px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="img/logo-gravity.png" alt="Gravity Logo">
+        </div>
+        <nav>
+            <a href="index.html" class="active">Piloti</a>
+            <a href="calendario.html">Calendario</a>
+        </nav>
+        <div class="usacli-container">
+            <img src="img/logo-usacli.png" alt="Logo USAcli">
+        </div>
+    </header>
+
+    <div class="grid-container">
+
+        <div class="driver-card">
+            <div class="race-number">903</div>
+            <img src="img/tony-impellizzeri.png" class="driver-photo" style="object-position: center 90%;">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C9</div>
+                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Impellizzeri</span>
+                <div class="footer-row">
+                    <div class="footer-stats">10 ANNI | S. TERESA DI RIVA (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">401</div>
+            <img src="img/claudio-gullo.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Claudio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Gullo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">46 ANNI | LAMEZIA TERME (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">403</div>
+            <img src="img/antonio-paone.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Antonio Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Paone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">58 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">511</div>
+            <img src="img/fabio-migliaccio.png" class="driver-photo" style="object-position: center 25%;">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Fabio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Migliaccio</span>
+                <div class="footer-row">
+                    <div class="footer-stats">35 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">406</div>
+            <div class="nickname">IL MASTRO DEL FERRO</div>
+            <img src="img/ivan-romeo.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Ivan <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Romeo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">47 ANNI | MANDANICI (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">402</div>
+            <img src="img/francesco-rotella.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Rotella</span>
+                <div class="footer-row">
+                    <div class="footer-stats">45 ANNI | SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">407</div>
+            <img src="img/antonio-critelli.png" class="driver-photo" style="object-position: center 15%;">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C8</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Critelli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">53 ANNI | MARCELLINARA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">105</div>
+            <img src="img/mattia-corigliano.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">N5K PRO</div>
+                <span class="first-name">Mattia <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Corigliano</span>
+                <div class="footer-row">
+                    <div class="footer-stats">31 ANNI | CATANZARO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">106</div>
+            <img src="img/onofrio-gallina.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K PRO</div>
+                <span class="first-name">Onofrio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Gallina</span>
+                <div class="footer-row">
+                    <div class="footer-stats">47 ANNI | S. TERESA DI RIVA (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">317</div>
+            <img src="img/giovanni-impellizzeri.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Impellizzeri</span>
+                <div class="footer-row">
+                    <div class="footer-stats">50 ANNI | S. TERESA DI RIVA (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">355</div>
+            <img src="img/daniele-mauro.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK STORICO</div>
+                <span class="first-name">Daniele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Mauro</span>
+                <div class="footer-row">
+                    <div class="footer-stats">46 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">309</div>
+            <img src="img/francesco-bevacqua.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Bevacqua</span>
+                <div class="footer-row">
+                    <div class="footer-stats">64 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">802</div>
+            <img src="img/salvo-greco.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C8</div>
+                <span class="first-name">Salvo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Greco</span>
+                <div class="footer-row">
+                    <div class="footer-stats">45 ANNI | ACI CATENA (CT)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">514</div>
+            <img src="img/pietro-pingitore.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Pietro <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Pingitore</span>
+                <div class="footer-row">
+                    <div class="footer-stats">22 ANNI | AMATO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">904</div>
+            <img src="img/tony-gallina.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C9</div>
+                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Gallina</span>
+                <div class="footer-row">
+                    <div class="footer-stats">12 ANNI | S. TERESA DI RIVA (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">311</div>
+            <img src="img/vitaliano-viscomi.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Vitaliano <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Viscomi</span>
+                <div class="footer-row">
+                    <div class="footer-stats">39 ANNI | SELLIA MARINA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">801</div>
+            <img src="img/vincenzo-paone.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C8</div>
+                <span class="first-name">Vincenzo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Paone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">307</div>
+            <img src="img/giuseppe-torchia.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Torchia</span>
+                <div class="footer-row">
+                    <div class="footer-stats">56 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">513</div>
+            <img src="img/raffaele-tozzo.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Raffaele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Tozzo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">58 ANNI | MAGISANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">404</div>
+            <img src="img/patrick-claudio-quinzi.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Patrick Claudio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Quinzi</span>
+                <div class="footer-row">
+                    <div class="footer-stats">37 ANNI | SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">805</div>
+            <img src="img/alex-bruni.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C8</div>
+                <span class="first-name">Alex <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Bruni</span>
+                <div class="footer-row">
+                    <div class="footer-stats">40 ANNI | SAN PIETRO APOSTOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">506</div>
+            <img src="img/tommaso-migliaccio.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Tommaso <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Migliaccio</span>
+                <div class="footer-row">
+                    <div class="footer-stats">43 ANNI | TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">308</div>
+            <img src="img/carlo-arrotta.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Carlo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Arrotta</span>
+                <div class="footer-row">
+                    <div class="footer-stats">44 ANNI | ALBI (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">315</div>
+            <img src="img/giovanni-prestipino.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Prestipino</span>
+                <div class="footer-row">
+                    <div class="footer-stats">16 ANNI | MESSINA</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">902</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C9</div>
+                <span class="first-name">Salvatore <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Russo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">901</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C9</div>
+                <span class="first-name">Emanuele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Leone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">512</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Gullo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">LAMEZIA TERME (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">510</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Federico</span>
+                <div class="footer-row">
+                    <div class="footer-stats">LAMEZIA TERME (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">509</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Ciambrone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">508</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Saverio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Zangari</span>
+                <div class="footer-row">
+                    <div class="footer-stats">BORGIA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">507</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">De Fazio</span>
+                <div class="footer-row">
+                    <div class="footer-stats">LAMEZIA TERME (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">505</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Paone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">504</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Fabrizio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Critelli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">MARCELLINARA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">503</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Zangari</span>
+                <div class="footer-row">
+                    <div class="footer-stats">BORGIA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">502</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Pasqualino <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Scerbo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">MARCELLINARA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">501</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K</div>
+                <span class="first-name">Cesare <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Calabretta</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">804</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA N5K PRO</div>
+                <span class="first-name">Salvatore <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Giglio</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SQUILLACE (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">354</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK STORICO</div>
+                <span class="first-name">Carmelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Prestipino</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALVECCHIO (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">353</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK STORICO</div>
+                <span class="first-name">Felice <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Critelli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">352</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK STORICO</div>
+                <span class="first-name">Angelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Talarico</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">351</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK STORICO</div>
+                <span class="first-name">Vittorio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Leone</span>
+                <div class="footer-row">
+                    <div class="footer-stats">MARCELLINARA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">316</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Onofrio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Pressante</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALVECCHIO (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">315</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Prestipino</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALVECCHIO (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">314</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Gullo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">LAMEZIA TERME (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">313</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Zangari</span>
+                <div class="footer-row">
+                    <div class="footer-stats">BORGIA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">312</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Russo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SETTINGIANO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">310</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Passarelli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">306</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Critelli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">305</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Angelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Catanzariti</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">304</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Catanzariti</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">303</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Noto</span>
+                <div class="footer-row">
+                    <div class="footer-stats">TIRIOLO (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">302</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Crisafulli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALVECCHIO (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">301</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">FOLK EVO</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Scerbo</span>
+                <div class="footer-row">
+                    <div class="footer-stats">MARCELLINARA (CZ)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">413</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Lavieri</span>
+                <div class="footer-row">
+                    <div class="footer-stats">POLICORO (MT)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">412</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Gerold <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Spitaler</span>
+                <div class="footer-row">
+                    <div class="footer-stats">BOLZANO</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">411</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Trovato</span>
+                <div class="footer-row">
+                    <div class="footer-stats">SAVOCA (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">410</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Crisafulli</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALVECCHIO (ME)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">409</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">De Donato</span>
+                <div class="footer-row">
+                    <div class="footer-stats">CASALI DEL MANCO (CS)</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="driver-card">
+            <div class="race-number">408</div>
+            <img src="img/default-driver.png" class="driver-photo">
+            <div class="bottom-gradient"></div>
+            <div class="info-panel">
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Rocco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="last-name">Licastro</span>
+                <div class="footer-row">
+                    <div class="footer-stats">REGGIO CALABRIA</div>
+                    <img src="img/logo-gravity.png" class="card-footer-logo">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

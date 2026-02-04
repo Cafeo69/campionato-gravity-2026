@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendario Gare 2026 - Gravity Race</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-red: #e10600;
+            --text-dark: #111111;
+            --header-bg: #000000;
+            --bg-dark: #1a1a1a;
+        }
+        body { background-color: var(--bg-dark); margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: white; }
+        
+        .site-header { 
+            background-color: var(--header-bg); padding: 10px 40px; display: flex; 
+            align-items: center; justify-content: space-between; position: sticky; 
+            top: 0; z-index: 100; border-bottom: 2px solid var(--accent-red); 
+        }
+
+        .logo-container img { height: 60px; display: block; }
+        .header-title { color: white; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 1px; flex-grow: 1; text-align: center; }
+        
+        .usacli-container { background-color: white; padding: 5px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .usacli-container img { height: 45px; width: auto; }
+
+        nav a { color: #aaa; text-decoration: none; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; margin: 0 15px; transition: 0.3s; }
+        nav a:hover, nav a.active { color: white; border-bottom: 2px solid var(--accent-red); }
+
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        
+        .calendar-card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .calendar-table { width: 100%; border-collapse: collapse; }
+        .calendar-table th { background: var(--accent-red); color: white; padding: 18px; text-align: left; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; }
+        .calendar-table td { padding: 18px; border-bottom: 1px solid #333; vertical-align: middle; }
+        .calendar-table tr:hover { background: #2a2a2a; }
+        
+        .date-cell { font-family: 'Archivo Black'; color: var(--accent-red); font-size: 18px; white-space: nowrap; width: 20%; }
+        .event-cell { width: 50%; }
+        .event-name { display: block; font-weight: 800; text-transform: uppercase; font-size: 16px; margin-bottom: 4px; }
+        .championship-tag { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .location-cell { font-weight: 700; text-transform: uppercase; color: #ddd; font-size: 14px; width: 30%; }
+
+        .disclaimer { margin-top: 30px; padding: 15px; border-left: 4px solid #555; background: #222; color: #aaa; font-size: 13px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="img/logo-gravity.png" alt="Gravity Logo">
+        </div>
+        <nav>
+            <a href="index.html">Piloti</a>
+            <a href="calendario.html" class="active">Calendario</a>
+        </nav>
+        <div class="usacli-container">
+            <img src="img/logo-usacli.png" alt="Logo USAcli">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 style="font-family: 'Archivo Black'; text-transform: uppercase; margin-bottom: 5px;">Calendario 2026</h1>
+        <p style="color: var(--accent-red); font-weight: 900; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px;">
+            8° Campionato Interregionale & 2° Campionato Nazionale USACLI
+        </p>
+
+        <div class="calendar-card">
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Gara</th>
+                        <th>Località</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date-cell">21/22 MAR</td>
+                        <td class="event-cell">
+                            <span class="event-name">1° Gravity Race Car Città di Antillo</span>
+                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
+                        </td>
+                        <td class="location-cell">Antillo (ME)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">18/19 APR</td>
+                        <td class="event-cell">
+                            <span class="event-name">1° Gravity Race Car Città di Montalbano Ionico</span>
+                            <span class="championship-tag">Campionato Nazionale USACLI</span>
+                        </td>
+                        <td class="location-cell">Montalbano Ionico (MT)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">09/10 MAG</td>
+                        <td class="event-cell">
+                            <span class="event-name">1° Gravity Race Car Santa Maria di Catanzaro</span>
+                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
+                        </td>
+                        <td class="location-cell">Catanzaro (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">06/07 GIU</td>
+                        <td class="event-cell">
+                            <span class="event-name">2° Gravity Race Cup Nocera Terinese</span>
+                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
+                        </td>
+                        <td class="location-cell">Nocera Terinese (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">27/28 GIU</td>
+                        <td class="event-cell">
+                            <span class="event-name">3° Gravity Race Car Ferrito-Pratora</span>
+                            <span class="championship-tag">Tiriolo Race Day</span>
+                        </td>
+                        <td class="location-cell">Tiriolo (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">25/26 LUG</td>
+                        <td class="event-cell">
+                            <span class="event-name">1° Gravity Race Car Città di Squillace</span>
+                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
+                        </td>
+                        <td class="location-cell">Squillace (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">26/27 SET</td>
+                        <td class="event-cell">
+                            <span class="event-name">2° Gravity Race Car Città di S. Andrea Apostolo</span>
+                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
+                        </td>
+                        <td class="location-cell">S. Andrea Apostolo (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">24/25 OTT</td>
+                        <td class="event-cell">
+                            <span class="event-name">5° Gravity Race Car Chianore Iuvoli</span>
+                            <span class="championship-tag">Settingiano Grand Prix</span>
+                        </td>
+                        <td class="location-cell">Settingiano (CZ)</td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">14/15 NOV</td>
+                        <td class="event-cell">
+                            <span class="event-name">3° Gravity Race Car Città di Savoca</span>
+                            <span class="championship-tag">Finale di Stagione</span>
+                        </td>
+                        <td class="location-cell">Savoca (ME)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="disclaimer">
+            Le date sopra indicate potrebbero essere soggette a variazioni. Si prega di consultare regolarmente il sito per aggiornamenti.
+        </div>
+    </div>
+</body>
+</html>
