@@ -95,24 +95,62 @@
         .footer-social a { color: inherit; display: inline-flex; align-items: center; }
         .footer-social a:hover { color: #ffffff; opacity: 0.85; }
         .footer-social svg { width: 18px; height: 18px; display: block; }
-        /* --- AGGIUNTA OTTIMIZZAZIONE MOBILE --- */
+        /* --- OTTIMIZZAZIONE MOBILE: 2 CARD PER RIGA --- */
         @media (max-width: 768px) {
             .site-header { padding: 10px 15px; }
-            .logo-container img { height: 40px; }
-            .usacli-container img { height: 35px; }
+            .logo-container img { height: 35px; }
+            .usacli-container img { height: 30px; }
             nav { gap: 15px; margin: 0 10px; }
             nav a { font-size: 11px; }
 
+            /* 1. GRIGLIA A 2 COLONNE */
             .grid-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 0 15px;
+                grid-template-columns: repeat(2, 1fr); /* Forza 2 colonne uguali */
+                gap: 10px; /* Spazio ridotto tra le card */
+                padding: 0 10px; /* Margini laterali ridotti */
                 margin-top: 20px;
             }
 
-            .driver-card { height: 480px; }
-            .last-name { font-size: 38px; }
-            .footer-stats { font-size: 10px; }
+            /* 2. CARD PIÙ BASSA E COMPATTA */
+            .driver-card { 
+                height: 280px; /* Ridotto drasticamente da 520px */
+                border-radius: 3px;
+            }
+
+            /* 3. NUMERO DI GARA PICCOLO */
+            .race-number {
+                font-size: 12px;
+                padding: 2px 6px;
+                top: 8px;
+                right: 8px;
+                border-left-width: 2px;
+            }
+
+            /* 4. TESTI RIDIMENSIONATI */
+            .info-panel { padding: 10px; } /* Meno aria attorno */
+            
+            .category-badge { 
+                font-size: 7px; 
+                padding: 2px 5px; 
+                margin-bottom: 4px;
+            }
+
+            .first-name { font-size: 9px; }
+            
+            .last-name { 
+                font-size: 18px; /* Molto più piccolo per stare in una colonna stretta */
+                line-height: 1;
+                margin: 2px 0 8px 0;
+            }
+
+            .footer-stats { font-size: 7px; letter-spacing: 0; }
+            
+            .card-footer-logo { height: 20px; } /* Logo minuscolo */
+            .flag-icon { width: 12px; }
+
+            /* Nascondiamo il "Nickname" che appare al passaggio del mouse, 
+               perché su mobile dava fastidio */
+            .nickname { display: none; }
         }
     </style>
 </head>
