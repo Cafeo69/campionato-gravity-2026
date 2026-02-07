@@ -94,6 +94,42 @@
         .footer-social a { color: inherit; display: inline-flex; align-items: center; }
         .footer-social a:hover { color: #ffffff; opacity: 0.85; }
         .footer-social svg { width: 18px; height: 18px; display: block; }
+        /* --- OTTIMIZZAZIONE MOBILE --- */
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 10px 15px;
+            }
+
+            .logo-container img {
+                height: 40px;
+            }
+
+            .usacli-container img {
+                height: 30px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .driver-card {
+                height: 480px;
+            }
+
+            .last-name {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
 <body>
