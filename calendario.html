@@ -49,6 +49,18 @@
         .location-cell { font-weight: 700; text-transform: uppercase; color: #ddd; font-size: 14px; width: 30%; }
 
         .disclaimer { margin-top: 30px; padding: 15px; border-left: 4px solid #555; background: #222; color: #aaa; font-size: 13px; font-style: italic; }
+        .site-footer { background: #0d0d0d; border-top: 2px solid var(--accent-red); color: #bbb; padding: 36px 20px; margin-top: 40px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; position: relative; padding-bottom: 16px; }
+        .footer-title { font-family: 'Archivo Black', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; }
+        .footer-line { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: #9a9a9a; }
+        .footer-line.strong { color: #e6e6e6; font-weight: 800; }
+        .footer-line a { color: #e6e6e6; text-decoration: none; }
+        .footer-line a:hover { color: #ffffff; }
+        .footer-contact { position: absolute; right: 0; bottom: 0; font-size: 11px; letter-spacing: 0.4px; }
+        .footer-social { display: inline-flex; align-items: center; gap: 10px; color: #d9d9d9; }
+        .footer-social a { color: inherit; display: inline-flex; align-items: center; }
+        .footer-social a:hover { color: #ffffff; opacity: 0.85; }
+        .footer-social svg { width: 18px; height: 18px; display: block; }
     </style>
 </head>
 <body>
@@ -57,9 +69,10 @@
             <img src="img/logo-gravity.png" alt="Gravity Logo">
         </div>
         <nav>
-            <a href="index.html">Piloti</a>
-            <a href="calendario.html" class="active">Calendario</a>
-        </nav>
+        <a href="piloti.html">Piloti</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="direttivo.html">Direttivo</a>
+         </nav>
         <div class="usacli-container">
             <img src="img/logo-usacli.png" alt="Logo USAcli">
         </div>
@@ -161,5 +174,36 @@
             Le date sopra indicate potrebbero essere soggette a variazioni. Si prega di consultare regolarmente il sito per aggiornamenti.
         </div>
     </div>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-title">Contatti</div>
+            <div class="footer-line strong">A.S.D. SPEED DOWN PROJECT</div>
+            <div class="footer-line">Via Madonna Della Rocca, 14</div>
+            <div class="footer-line">88040 - Settingiano (CZ)</div>
+            <div class="footer-line">C.F. 97098810795</div>
+            <div class="footer-line footer-social">
+                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Speed Down Project">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-line footer-contact">
+                <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var user = "gravityraceproject";
+            var domain = "gmail.com";
+            var email = user + "@" + domain;
+            var link = document.getElementById("footer-email");
+            if (link) {
+                link.href = "mailto:" + email;
+                link.textContent = "Contattaci";
+            }
+        })();
+    </script>
 </body>
 </html>
