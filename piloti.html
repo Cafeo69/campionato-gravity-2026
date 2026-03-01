@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campionato Piloti 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="img/logo-gravity.png" type="image/png">
     <style>
         :root {
@@ -12,263 +14,481 @@
             --bright-red: #ff4d4d;
             --text-dark: #111111;
         }
-        
-        body { 
-            margin: 0; 
-            padding: 0; 
+
+        body {
+            margin: 0;
+            padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #1a1a1a; 
-            position: relative; 
+            background-color: #1a1a1a;
+            position: relative;
             color: white;
         }
 
         /* SFONDO SFOCATO (Identico alle altre pagine) */
         body::before {
             content: "";
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             background-image: url('img/landing-bg.png');
             background-size: cover;
             background-position: center;
-            filter: blur(8px) brightness(0.7); 
+            filter: blur(8px) brightness(0.7);
             -webkit-filter: blur(8px) brightness(0.7);
             transform: scale(1.05);
         }
-   /* STILE CREDIT CON ICONA */
-.site-credits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px; /* Spazio tra gli elementi */
-    
-    font-size: 9px;
-    font-weight: 300;
-    color: #333;
-    margin-top: 20px;
-    padding-bottom: 10px;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-}
 
-.site-credits a {
-    color: #555;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex; /* Per allineare l'SVG */
-    align-items: center;
-}
+        /* STILE CREDIT CON ICONA */
+        .site-credits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            /* Spazio tra gli elementi */
 
-.site-credits .separator {
-    font-size: 8px;
-    color: #333;
-}
+            font-size: 9px;
+            font-weight: 300;
+            color: #333;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
 
-/* Dimensione icona Instagram */
-.site-credits svg {
-    width: 10px;
-    height: 10px;
-    fill: currentColor; /* Prende il colore del testo */
-    margin-top: -1px; /* Piccola correzione ottica */
-}
+        .site-credits a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            /* Per allineare l'SVG */
+            align-items: center;
+        }
 
-/* Effetto Hover: tutto diventa rosso */
-.site-credits a:hover {
-    color: var(--accent-red);
-    opacity: 1;
-    cursor: pointer;
-}
+        .site-credits .separator {
+            font-size: 8px;
+            color: #333;
+        }
+
+        /* Dimensione icona Instagram */
+        .site-credits svg {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            /* Prende il colore del testo */
+            margin-top: -1px;
+            /* Piccola correzione ottica */
+        }
+
+        /* Effetto Hover: tutto diventa rosso */
+        .site-credits a:hover {
+            color: var(--accent-red);
+            opacity: 1;
+            cursor: pointer;
+        }
+
         /* HEADER */
-        .site-header { 
-            background-color: transparent; 
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
-            padding: 20px 40px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            position: sticky; top: 0; z-index: 100; 
+        .site-header {
+            background-color: transparent;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo-container img { height: 60px; display: block; }
-        
-        nav { display: flex; gap: 30px; margin: 0 20px; }
-        nav a { 
-            color: #ccc; 
-            text-decoration: none; 
-            font-family: 'Archivo Black'; 
-            text-transform: uppercase; 
-            font-size: 14px; 
-            transition: 0.3s; 
-            padding-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        .logo-container img {
+            height: 60px;
+            display: block;
         }
-        nav a:hover { color: white; }
-        nav a.active { color: white; border-bottom: 2px solid var(--accent-red); }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            margin: 0 20px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-family: 'Archivo Black';
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.3s;
+            padding-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a.active {
+            color: white;
+            border-bottom: 2px solid var(--accent-red);
+        }
 
         .usacli-container {
-            background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(5px); 
-            padding: 5px; border-radius: 4px; display: flex; align-items: center; justify-content: center; 
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .usacli-container img { height: 45px; width: auto; }
+
+        .usacli-container img {
+            height: 45px;
+            width: auto;
+        }
 
         /* GRIGLIA PILOTI */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; max-width: 1400px; margin: 40px auto; padding: 0 20px; }
-        
-        /* CARD PILOTA DARK */
-        .driver-card { 
-            height: 520px; 
-            background-color: rgba(0, 0, 0, 0.7); /* Sfondo scuro semitrasparente */
-            backdrop-filter: blur(10px); /* Effetto vetro */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Bordino sottile */
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 8px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        
-        .driver-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 25px 50px rgba(225, 6, 0, 0.15); /* Alone rosso leggero */
+
+        /* CARD PILOTA DARK */
+        .driver-card {
+            height: 520px;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Sfondo scuro semitrasparente */
+            backdrop-filter: blur(10px);
+            /* Effetto vetro */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Bordino sottile */
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(225, 6, 0, 0.15);
+            /* Alone rosso leggero */
             border-color: rgba(255, 255, 255, 0.3);
         }
 
-        .driver-photo { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            object-fit: cover; z-index: 1; 
+        .driver-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
             /* Maschera per sfumare la foto verso il basso */
-            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%); 
-            mask-image: linear-gradient(to bottom, black 60%, transparent 95%); 
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
         }
-        
+
         .race-number {
-            position: absolute; top: 15px; right: 15px;
-            background-color: #000; /* Nero pieno per contrasto */
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #000;
+            /* Nero pieno per contrasto */
             color: white;
             font-family: 'Archivo Black', sans-serif;
-            font-size: 24px; padding: 5px 12px;
-            border-radius: 2px; z-index: 10;
+            font-size: 24px;
+            padding: 5px 12px;
+            border-radius: 2px;
+            z-index: 10;
             border-left: 4px solid var(--accent-red);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .nickname { 
-            position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) scale(0.8); 
-            background: rgba(225, 6, 0, 0.95); color: white; padding: 12px 24px; 
-            font-family: 'Archivo Black', sans-serif; font-size: 18px; text-transform: uppercase; 
-            white-space: nowrap; opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            z-index: 10; border-radius: 3px; 
+        .nickname {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(225, 6, 0, 0.95);
+            color: white;
+            padding: 12px 24px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            border-radius: 3px;
         }
-        .driver-card:hover .nickname { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        
+
+        .driver-card:hover .nickname {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
         /* SFUMATURA INFERIORE DARK */
-        .bottom-gradient { 
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; 
+        .bottom-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
             /* Sfumatura che va dal nero pieno (sotto) al trasparente (sopra) */
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 30%, transparent 100%); 
-            z-index: 2; 
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 30%, transparent 100%);
+            z-index: 2;
         }
-        
-        .info-panel { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px 25px; box-sizing: border-box; z-index: 5; }
-        
-        .category-badge { 
-            background-color: var(--accent-red); color: white; 
-            font-weight: 900; font-size: 11px; padding: 4px 10px; 
-            display: inline-block; margin-bottom: 8px; text-transform: uppercase; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+
+        .info-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 25px;
+            box-sizing: border-box;
+            z-index: 5;
         }
-        
-        .first-name { 
-            font-weight: 300; font-size: 22px; text-transform: uppercase; 
-            color: #ddd; /* Grigio chiaro invece che scuro */
-            display: block; 
+
+        .category-badge {
+            background-color: var(--accent-red);
+            color: white;
+            font-weight: 900;
+            font-size: 11px;
+            padding: 4px 10px;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
-        
-        .last-name { 
-            font-family: 'Archivo Black', sans-serif; font-size: 44px; 
-            text-transform: uppercase; 
-            color: white; /* Bianco puro */
-            line-height: 0.8; margin: 5px 0 15px 0; 
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
+        .first-name {
+            font-weight: 300;
+            font-size: 22px;
+            text-transform: uppercase;
+            color: #ddd;
+            /* Grigio chiaro invece che scuro */
+            display: block;
         }
-        
-        .footer-row { 
-            display: flex; justify-content: space-between; align-items: center; padding-top: 15px; 
-            border-top: 1px solid rgba(255,255,255,0.15); /* Linea chiara sottile */
+
+        .last-name {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 44px;
+            text-transform: uppercase;
+            color: white;
+            /* Bianco puro */
+            line-height: 0.8;
+            margin: 5px 0 15px 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
-        .footer-stats { 
-            font-size: 11px; font-weight: 800; 
-            color: #aaa; /* Grigio medio */
-            letter-spacing: 1px; text-transform: uppercase; 
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            /* Linea chiara sottile */
         }
-        
+
+        .footer-stats {
+            font-size: 11px;
+            font-weight: 800;
+            color: #aaa;
+            /* Grigio medio */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         /* MODIFICA LOGO: COLORI ORIGINALI, NESSUN FILTRO */
-        .card-footer-logo { 
-            height: 45px; 
-            width: auto; 
+        .card-footer-logo {
+            height: 45px;
+            width: auto;
             /* Rimuove qualsiasi filtro, mostrando i colori originali del logo */
-            filter: none; 
-            opacity: 1; 
+            filter: none;
+            opacity: 1;
         }
-        
-        .flag-icon { width: 22px; margin-left: 5px; vertical-align: middle; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        .flag-icon {
+            width: 22px;
+            margin-left: 5px;
+            vertical-align: middle;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
         /* FOOTER SITO */
-        .site-footer { background: #0d0d0d; border-top: 2px solid var(--accent-red); color: #bbb; padding: 36px 20px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; position: relative; padding-bottom: 16px; }
-        .footer-title { font-family: 'Archivo Black', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; }
-        .footer-line { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: #9a9a9a; }
-        .footer-line.strong { color: #e6e6e6; font-weight: 800; }
-        .footer-line a { color: #e6e6e6; text-decoration: none; }
-        .footer-line a:hover { color: #ffffff; }
-        .footer-contact { position: absolute; right: 0; bottom: 0; font-size: 11px; letter-spacing: 0.4px; }
-        .footer-social { display: inline-flex; align-items: center; gap: 10px; color: #d9d9d9; }
-        .footer-social a { color: inherit; display: inline-flex; align-items: center; }
-        .footer-social a:hover { color: #ffffff; opacity: 0.85; }
-        .footer-social svg { width: 18px; height: 18px; display: block; }
+        .site-footer {
+            background: #0d0d0d;
+            border-top: 2px solid var(--accent-red);
+            color: #bbb;
+            padding: 36px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .footer-title {
+            font-family: 'Archivo Black', sans-serif;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        .footer-line {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #9a9a9a;
+        }
+
+        .footer-line.strong {
+            color: #e6e6e6;
+            font-weight: 800;
+        }
+
+        .footer-line a {
+            color: #e6e6e6;
+            text-decoration: none;
+        }
+
+        .footer-line a:hover {
+            color: #ffffff;
+        }
+
+        .footer-contact {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 11px;
+            letter-spacing: 0.4px;
+        }
+
+        .footer-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #d9d9d9;
+        }
+
+        .footer-social a {
+            color: inherit;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-social a:hover {
+            color: #ffffff;
+            opacity: 0.85;
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
 
         /* --- OTTIMIZZAZIONE MOBILE: 2 CARD PER RIGA --- */
         @media (max-width: 768px) {
-            .site-header { padding: 10px 15px; }
-            .logo-container img { height: 35px; }
-            .usacli-container img { height: 30px; }
-            nav { gap: 15px; margin: 0 10px; }
-            nav a { font-size: 11px; }
+            .site-header {
+                padding: 10px 15px;
+            }
+
+            .logo-container img {
+                height: 35px;
+            }
+
+            .usacli-container img {
+                height: 30px;
+            }
+
+            nav {
+                gap: 15px;
+                margin: 0 10px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
 
             /* 1. GRIGLIA A 2 COLONNE */
             .grid-container {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 10px; 
-                padding: 0 10px; 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 10px;
                 margin-top: 20px;
             }
 
             /* 2. CARD PIÙ BASSA E COMPATTA */
-            .driver-card { height: 280px; border-radius: 6px; }
+            .driver-card {
+                height: 280px;
+                border-radius: 6px;
+            }
 
             /* 3. NUMERO DI GARA PICCOLO */
             .race-number {
-                font-size: 12px; padding: 2px 6px;
-                top: 8px; right: 8px; border-left-width: 2px;
+                font-size: 12px;
+                padding: 2px 6px;
+                top: 8px;
+                right: 8px;
+                border-left-width: 2px;
             }
 
             /* 4. TESTI RIDIMENSIONATI */
-            .info-panel { padding: 10px; }
-            .category-badge { font-size: 7px; padding: 2px 5px; margin-bottom: 4px; }
-            .first-name { font-size: 9px; }
-            .last-name { font-size: 18px; line-height: 1; margin: 2px 0 8px 0; }
-            .footer-stats { font-size: 7px; letter-spacing: 0; }
-            .card-footer-logo { height: 20px; } 
-            .flag-icon { width: 12px; }
-            .nickname { display: none; }
+            .info-panel {
+                padding: 10px;
+            }
+
+            .category-badge {
+                font-size: 7px;
+                padding: 2px 5px;
+                margin-bottom: 4px;
+            }
+
+            .first-name {
+                font-size: 9px;
+            }
+
+            .last-name {
+                font-size: 18px;
+                line-height: 1;
+                margin: 2px 0 8px 0;
+            }
+
+            .footer-stats {
+                font-size: 7px;
+                letter-spacing: 0;
+            }
+
+            .card-footer-logo {
+                height: 20px;
+            }
+
+            .flag-icon {
+                width: 12px;
+            }
+
+            .nickname {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
     <header class="site-header">
         <div class="logo-container">
@@ -277,7 +497,7 @@
         <nav>
             <a href="piloti.html" class="active">Piloti</a>
             <a href="calendario.html">Calendario</a>
-            <a href="direttivo.html">Direttivo</a> 
+            <a href="direttivo.html">Direttivo</a>
         </nav>
         <div class="usacli-container">
             <img src="img/logo-usacli.png" alt="Logo USAcli">
@@ -292,7 +512,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C9</div>
-                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Tony <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Impellizzeri</span>
                 <div class="footer-row">
                     <div class="footer-stats">10 ANNI | S. TERESA DI RIVA (ME)</div>
@@ -307,7 +528,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Claudio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Claudio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Gullo</span>
                 <div class="footer-row">
                     <div class="footer-stats">46 ANNI | LAMEZIA TERME (CZ)</div>
@@ -322,7 +544,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Antonio Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Paone</span>
                 <div class="footer-row">
                     <div class="footer-stats">58 ANNI | TIRIOLO (CZ)</div>
@@ -337,7 +560,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Fabio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Fabio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Migliaccio</span>
                 <div class="footer-row">
                     <div class="footer-stats">35 ANNI | TIRIOLO (CZ)</div>
@@ -353,7 +577,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Ivan <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Ivan <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Romeo</span>
                 <div class="footer-row">
                     <div class="footer-stats">47 ANNI | MANDANICI (ME)</div>
@@ -368,7 +593,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Rotella</span>
                 <div class="footer-row">
                     <div class="footer-stats">45 ANNI | SETTINGIANO (CZ)</div>
@@ -382,8 +608,9 @@
             <img src="img/antonio-critelli.png" class="driver-photo" style="object-position: center 15%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
-                <div class="category-badge">CATEGORIA C8</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <div class="category-badge">CATEGORIA C4</div>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Critelli</span>
                 <div class="footer-row">
                     <div class="footer-stats">53 ANNI | MARCELLINARA (CZ)</div>
@@ -398,7 +625,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">N5K PRO</div>
-                <span class="first-name">Mattia <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Mattia <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Corigliano</span>
                 <div class="footer-row">
                     <div class="footer-stats">31 ANNI | CATANZARO (CZ)</div>
@@ -413,7 +641,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K PRO</div>
-                <span class="first-name">Onofrio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Onofrio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Gallina</span>
                 <div class="footer-row">
                     <div class="footer-stats">47 ANNI | S. TERESA DI RIVA (ME)</div>
@@ -424,11 +653,12 @@
 
         <div class="driver-card">
             <div class="race-number">317</div>
-            <img src="img/giovanni-impellizzeri.png" class="driver-photo"style="object-position: center 0%;">
+            <img src="img/giovanni-impellizzeri.png" class="driver-photo" style="object-position: center 0%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giovanni <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Impellizzeri</span>
                 <div class="footer-row">
                     <div class="footer-stats">50 ANNI | S. TERESA DI RIVA (ME)</div>
@@ -443,7 +673,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK STORICO</div>
-                <span class="first-name">Daniele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Daniele <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Mauro</span>
                 <div class="footer-row">
                     <div class="footer-stats">46 ANNI | TIRIOLO (CZ)</div>
@@ -458,7 +689,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Bevacqua</span>
                 <div class="footer-row">
                     <div class="footer-stats">64 ANNI | TIRIOLO (CZ)</div>
@@ -473,7 +705,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C8</div>
-                <span class="first-name">Salvo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Salvo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Greco</span>
                 <div class="footer-row">
                     <div class="footer-stats">45 ANNI | ACI CATENA (CT)</div>
@@ -488,7 +721,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Pietro <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Pietro <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Pingitore</span>
                 <div class="footer-row">
                     <div class="footer-stats">22 ANNI | AMATO (CZ)</div>
@@ -503,7 +737,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C9</div>
-                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Tony <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Gallina</span>
                 <div class="footer-row">
                     <div class="footer-stats">12 ANNI | S. TERESA DI RIVA (ME)</div>
@@ -518,7 +753,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Vitaliano <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Vitaliano <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Viscomi</span>
                 <div class="footer-row">
                     <div class="footer-stats">39 ANNI | SELLIA MARINA (CZ)</div>
@@ -529,11 +765,12 @@
 
         <div class="driver-card">
             <div class="race-number">801</div>
-            <img src="img/vincenzo-paone.png" class="driver-photo" style="object-position: center 00%;" >
+            <img src="img/vincenzo-paone.png" class="driver-photo" style="object-position: center 00%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C8</div>
-                <span class="first-name">Vincenzo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Vincenzo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Paone</span>
                 <div class="footer-row">
                     <div class="footer-stats">56 ANNI | SETTINGIANO (CZ)</div>
@@ -544,11 +781,12 @@
 
         <div class="driver-card">
             <div class="race-number">307</div>
-            <img src="img/giuseppe-torchia.png" class="driver-photo" style="object-position: center 0%;" >
+            <img src="img/giuseppe-torchia.png" class="driver-photo" style="object-position: center 0%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giuseppe <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Torchia</span>
                 <div class="footer-row">
                     <div class="footer-stats">56 ANNI | TIRIOLO (CZ)</div>
@@ -563,7 +801,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Raffaele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Raffaele <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Tozzo</span>
                 <div class="footer-row">
                     <div class="footer-stats">58 ANNI | MAGISANO (CZ)</div>
@@ -578,7 +817,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Patrick Claudio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Patrick Claudio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Quinzi</span>
                 <div class="footer-row">
                     <div class="footer-stats">37 ANNI | SETTINGIANO (CZ)</div>
@@ -593,7 +833,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C8</div>
-                <span class="first-name">Alex <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Alex <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Bruni</span>
                 <div class="footer-row">
                     <div class="footer-stats">40 ANNI | SAN PIETRO APOSTOLO (CZ)</div>
@@ -608,7 +849,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Tommaso <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Tommaso <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Migliaccio</span>
                 <div class="footer-row">
                     <div class="footer-stats">43 ANNI | TIRIOLO (CZ)</div>
@@ -623,7 +865,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Carlo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Carlo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Arrotta</span>
                 <div class="footer-row">
                     <div class="footer-stats">44 ANNI | ALBI (CZ)</div>
@@ -634,11 +877,12 @@
 
         <div class="driver-card">
             <div class="race-number">315</div>
-            <img src="img/giovanni-prestipino.png" class="driver-photo" style="object-position: center 30%;" >
+            <img src="img/giovanni-prestipino.png" class="driver-photo" style="object-position: center 30%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giovanni <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Prestipino</span>
                 <div class="footer-row">
                     <div class="footer-stats">16 ANNI | MESSINA</div>
@@ -653,7 +897,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C9</div>
-                <span class="first-name">Salvatore <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Salvatore <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Russo</span>
                 <div class="footer-row">
                     <div class="footer-stats">SETTINGIANO (CZ)</div>
@@ -668,7 +913,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C9</div>
-                <span class="first-name">Emanuele <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Emanuele <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Leone</span>
                 <div class="footer-row">
                     <div class="footer-stats">SETTINGIANO (CZ)</div>
@@ -683,7 +929,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K | C4</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Gullo</span>
                 <div class="footer-row">
                     <div class="footer-stats">70 ANNI | LAMEZIA TERME (CZ)</div>
@@ -698,7 +945,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Federico</span>
                 <div class="footer-row">
                     <div class="footer-stats">LAMEZIA TERME (CZ)</div>
@@ -713,7 +961,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giuseppe <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Ciambrone</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -728,7 +977,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Saverio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Saverio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Zangari</span>
                 <div class="footer-row">
                     <div class="footer-stats">BORGIA (CZ)</div>
@@ -743,7 +993,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">De Fazio</span>
                 <div class="footer-row">
                     <div class="footer-stats">LAMEZIA TERME (CZ)</div>
@@ -758,7 +1009,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Paone</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -773,7 +1025,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Fabrizio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Fabrizio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Critelli</span>
                 <div class="footer-row">
                     <div class="footer-stats">MARCELLINARA (CZ)</div>
@@ -788,7 +1041,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giovanni <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Zangari</span>
                 <div class="footer-row">
                     <div class="footer-stats">BORGIA (CZ)</div>
@@ -803,7 +1057,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Pasqualino <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Pasqualino <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Scerbo</span>
                 <div class="footer-row">
                     <div class="footer-stats">MARCELLINARA (CZ)</div>
@@ -818,7 +1073,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K</div>
-                <span class="first-name">Cesare <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Cesare <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Calabretta</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -833,7 +1089,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA N5K PRO</div>
-                <span class="first-name">Salvatore <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Salvatore <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Giglio</span>
                 <div class="footer-row">
                     <div class="footer-stats">SQUILLACE (CZ)</div>
@@ -848,7 +1105,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK STORICO</div>
-                <span class="first-name">Felice <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Felice <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Critelli</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -859,11 +1117,12 @@
 
         <div class="driver-card">
             <div class="race-number">352</div>
-            <img src="img/angelo-talarico.png" class="driver-photo" style="object-position: center 0%;" >
+            <img src="img/angelo-talarico.png" class="driver-photo" style="object-position: center 0%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK STORICO</div>
-                <span class="first-name">Angelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Angelo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Talarico</span>
                 <div class="footer-row">
                     <div class="footer-stats">70 ANNI | TIRIOLO (CZ)</div>
@@ -878,7 +1137,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK STORICO</div>
-                <span class="first-name">Vittorio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Vittorio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Leone</span>
                 <div class="footer-row">
                     <div class="footer-stats">MARCELLINARA (CZ)</div>
@@ -893,7 +1153,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Giovanni <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giovanni <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Prestipino</span>
                 <div class="footer-row">
                     <div class="footer-stats">CASALVECCHIO (ME)</div>
@@ -908,7 +1169,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Gullo</span>
                 <div class="footer-row">
                     <div class="footer-stats">LAMEZIA TERME (CZ)</div>
@@ -923,7 +1185,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Domenico <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Zangari</span>
                 <div class="footer-row">
                     <div class="footer-stats">BORGIA (CZ)</div>
@@ -938,7 +1201,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Domenico <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Russo</span>
                 <div class="footer-row">
                     <div class="footer-stats">SETTINGIANO (CZ)</div>
@@ -953,7 +1217,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Passarelli</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -968,7 +1233,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Domenico <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Domenico <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Critelli</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -979,11 +1245,12 @@
 
         <div class="driver-card">
             <div class="race-number">305</div>
-            <img src="img/angelo-catanzariti.png" class="driver-photo" style="object-position: center 0%;" >
+            <img src="img/angelo-catanzariti.png" class="driver-photo" style="object-position: center 0%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Angelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Angelo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Catanzariti</span>
                 <div class="footer-row">
                     <div class="footer-stats">17 ANNI | TIRIOLO (CZ)</div>
@@ -998,7 +1265,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO | C4</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Catanzariti</span>
                 <div class="footer-row">
                     <div class="footer-stats">58 ANNI | TIRIOLO (CZ)</div>
@@ -1013,7 +1281,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Noto</span>
                 <div class="footer-row">
                     <div class="footer-stats">TIRIOLO (CZ)</div>
@@ -1028,7 +1297,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Tony <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Crisafulli</span>
                 <div class="footer-row">
                     <div class="footer-stats">36 ANNI | MESSINA</div>
@@ -1043,7 +1313,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Scerbo</span>
                 <div class="footer-row">
                     <div class="footer-stats">MARCELLINARA (CZ)</div>
@@ -1058,7 +1329,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Antonio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Antonio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Lavieri</span>
                 <div class="footer-row">
                     <div class="footer-stats">41 ANNI | POLICORO (MT)</div>
@@ -1073,7 +1345,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Gerold <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Gerold <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Spitaler</span>
                 <div class="footer-row">
                     <div class="footer-stats">55 ANNI | APPIANO (BZ)</div>
@@ -1088,7 +1361,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Giuseppe <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Giuseppe <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Trovato</span>
                 <div class="footer-row">
                     <div class="footer-stats">46 ANNI | SAVOCA (ME)</div>
@@ -1103,7 +1377,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Tony <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Tony <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Crisafulli</span>
                 <div class="footer-row">
                     <div class="footer-stats">CASALVECCHIO (ME)</div>
@@ -1118,7 +1393,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Francesco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Francesco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">De Donato</span>
                 <div class="footer-row">
                     <div class="footer-stats">44 ANNI | CASALI DEL MANCO (CS)</div>
@@ -1133,7 +1409,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C4</div>
-                <span class="first-name">Rocco <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Rocco <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Licastro</span>
                 <div class="footer-row">
                     <div class="footer-stats">REGGIO CALABRIA</div>
@@ -1143,11 +1420,13 @@
         </div>
 
         <div class="driver-card">
-            <div class="race-number">318</div> <img src="img/onofrio-pressante.png" class="driver-photo" style="object-position: center -10%;"> 
+            <div class="race-number">318</div> <img src="img/onofrio-pressante.png" class="driver-photo"
+                style="object-position: center -10%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK EVO</div>
-                <span class="first-name">Onofrio <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Onofrio <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Pressante</span>
                 <div class="footer-row">
                     <div class="footer-stats">46 ANNI | S.TERESA DI RIVA (ME)</div>
@@ -1161,7 +1440,8 @@
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">FOLK</div>
-                <span class="first-name">Carmelo <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
+                <span class="first-name">Carmelo <img class="flag-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"></span>
                 <span class="last-name">Prestipino</span>
                 <div class="footer-row">
                     <div class="footer-stats">55 ANNI | MESSINA</div>
@@ -1179,9 +1459,11 @@
             <div class="footer-line">88040 - Settingiano (CZ)</div>
             <div class="footer-line">C.F. 97098810795</div>
             <div class="footer-line footer-social">
-                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Speed Down Project">
+                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook Speed Down Project">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z"/>
+                        <path fill="currentColor"
+                            d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z" />
                     </svg>
                 </a>
             </div>
@@ -1189,15 +1471,16 @@
                 <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
             </div>
         </div>
-     <div class="site-credits">
-    Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
-    <span class="separator">&bull;</span>
-    <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-    </a>
-</div>
+        <div class="site-credits">
+            Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
+            <span class="separator">&bull;</span>
+            <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+            </a>
+        </div>
     </footer>
     <script>
         (function () {
@@ -1213,4 +1496,5 @@
 
     </script>
 </body>
+
 </html>
