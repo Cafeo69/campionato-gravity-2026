@@ -1,108 +1,147 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Direttivo - Gravity Race 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="img/logo-gravity.png" type="image/png">
     <style>
         :root {
             --accent-red: #e10600;
-            --bright-red: #ff4d4d; /* Rosso luminoso per il testo su sfondo scuro */
+            --bright-red: #ff4d4d;
+            /* Rosso luminoso per il testo su sfondo scuro */
             --text-dark: #111111;
         }
-        
-        body { 
-            margin: 0; 
-            padding: 0; 
+
+        body {
+            margin: 0;
+            padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #1a1a1a; 
-            position: relative; 
+            background-color: #1a1a1a;
+            position: relative;
             color: white;
         }
 
         /* SFONDO SFOCATO (Identico alle altre pagine) */
         body::before {
             content: "";
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             background-image: url('img/landing-bg.png');
             background-size: cover;
             background-position: center;
-            filter: blur(8px) brightness(0.7); 
+            filter: blur(8px) brightness(0.7);
             -webkit-filter: blur(8px) brightness(0.7);
             transform: scale(1.05);
         }
-  /* STILE CREDIT CON ICONA */
-.site-credits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px; /* Spazio tra gli elementi */
-    
-    font-size: 9px;
-    font-weight: 300;
-    color: #333;
-    margin-top: 20px;
-    padding-bottom: 10px;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-}
 
-.site-credits a {
-    color: #555;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex; /* Per allineare l'SVG */
-    align-items: center;
-}
+        /* STILE CREDIT CON ICONA */
+        .site-credits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            /* Spazio tra gli elementi */
 
-.site-credits .separator {
-    font-size: 8px;
-    color: #333;
-}
+            font-size: 9px;
+            font-weight: 300;
+            color: #333;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
 
-/* Dimensione icona Instagram */
-.site-credits svg {
-    width: 10px;
-    height: 10px;
-    fill: currentColor; /* Prende il colore del testo */
-    margin-top: -1px; /* Piccola correzione ottica */
-}
+        .site-credits a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            /* Per allineare l'SVG */
+            align-items: center;
+        }
 
-/* Effetto Hover: tutto diventa rosso */
-.site-credits a:hover {
-    color: var(--accent-red);
-    opacity: 1;
-    cursor: pointer;
-}
+        .site-credits .separator {
+            font-size: 8px;
+            color: #333;
+        }
+
+        /* Dimensione icona Instagram */
+        .site-credits svg {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            /* Prende il colore del testo */
+            margin-top: -1px;
+            /* Piccola correzione ottica */
+        }
+
+        /* Effetto Hover: tutto diventa rosso */
+        .site-credits a:hover {
+            color: var(--accent-red);
+            opacity: 1;
+            cursor: pointer;
+        }
+
         /* HEADER TRASPARENTE */
-        .site-header { 
-            background-color: transparent; 
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
-            padding: 20px 40px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            position: sticky; top: 0; z-index: 100; 
+        .site-header {
+            background-color: transparent;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo-container img { height: 60px; display: block; }
-        
-        .usacli-container { 
-            background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(5px); 
-            padding: 5px; border-radius: 4px; display: flex; align-items: center; justify-content: center; 
+        .logo-container img {
+            height: 60px;
+            display: block;
         }
-        .usacli-container img { height: 45px; width: auto; }
 
-        nav a { color: #ccc; text-decoration: none; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; margin: 0 15px; transition: 0.3s; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-        nav a:hover, nav a.active { color: white; border-bottom: 2px solid var(--accent-red); }
+        .usacli-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .usacli-container img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-family: 'Archivo Black';
+            text-transform: uppercase;
+            font-size: 14px;
+            margin: 0 15px;
+            transition: 0.3s;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+            border-bottom: 2px solid var(--accent-red);
+        }
 
         /* CONTENUTO DIRETTIVO */
         .staff-container {
@@ -117,20 +156,20 @@
             font-size: 48px;
             text-transform: uppercase;
             margin-bottom: 10px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
         }
-        
-        .subtitle { 
-            color: var(--bright-red); 
-            font-size: 18px; 
+
+        .subtitle {
+            color: var(--bright-red);
+            font-size: 18px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 60px; 
-            max-width: 700px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            text-shadow: 0 2px 5px rgba(0,0,0,1);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
         }
 
         .staff-grid {
@@ -142,20 +181,24 @@
 
         /* CARD STILE GLASSMORPHISM */
         .staff-card {
-            background-color: rgba(0, 0, 0, 0.75); /* Nero semitrasparente */
-            backdrop-filter: blur(10px); /* Sfocatura */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Bordino sottile */
+            background-color: rgba(0, 0, 0, 0.75);
+            /* Nero semitrasparente */
+            backdrop-filter: blur(10px);
+            /* Sfocatura */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Bordino sottile */
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             /* Rimosso il bordo rosso sotto per uno stile più pulito, o puoi tenerlo se ti piace */
-            border-bottom: 4px solid var(--accent-red); 
+            border-bottom: 4px solid var(--accent-red);
         }
-        
-        .staff-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 25px 50px rgba(225, 6, 0, 0.2); /*alone rosso leggero */
+
+        .staff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(225, 6, 0, 0.2);
+            /*alone rosso leggero */
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -165,22 +208,28 @@
             object-fit: cover;
             filter: grayscale(100%);
             transition: filter 0.3s;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .staff-card:hover .staff-photo { filter: grayscale(0%); }
 
-        .staff-info { padding: 25px; text-align: left; }
-        
+        .staff-card:hover .staff-photo {
+            filter: grayscale(0%);
+        }
+
+        .staff-info {
+            padding: 25px;
+            text-align: left;
+        }
+
         .role {
-            color: var(--bright-red); /* Rosso acceso */
+            color: var(--bright-red);
+            /* Rosso acceso */
             font-family: 'Archivo Black', sans-serif;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
-        
+
         .name {
             font-family: 'Archivo Black', sans-serif;
             font-size: 24px;
@@ -188,44 +237,130 @@
             margin: 0 0 12px 0;
             line-height: 1;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .bio {
             font-size: 14px;
-            color: #ccc; /* Grigio chiaro leggibile */
+            color: #ccc;
+            /* Grigio chiaro leggibile */
             line-height: 1.6;
             font-weight: 300;
         }
 
         /* FOOTER (Identico alle altre pagine) */
-        .site-footer { background: #0d0d0d; border-top: 2px solid var(--accent-red); color: #bbb; padding: 36px 20px; margin-top: 80px; text-align: left; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; position: relative; }
-        .footer-title { font-family: 'Archivo Black', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; }
-        .footer-line { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: #9a9a9a; }
-        .footer-line.strong { color: #e6e6e6; font-weight: 800; }
-        .footer-contact { position: absolute; right: 0; bottom: 0; font-size: 11px; }
-        .footer-social { display: inline-flex; gap: 10px; color: #d9d9d9; margin-top: 10px;}
-        .footer-social svg { width: 20px; height: 20px; }
-        .footer-line a { color: inherit; text-decoration: none; }
+        .site-footer {
+            background: #0d0d0d;
+            border-top: 2px solid var(--accent-red);
+            color: #bbb;
+            padding: 36px 20px;
+            margin-top: 80px;
+            text-align: left;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+            position: relative;
+        }
+
+        .footer-title {
+            font-family: 'Archivo Black', sans-serif;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        .footer-line {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #9a9a9a;
+        }
+
+        .footer-line.strong {
+            color: #e6e6e6;
+            font-weight: 800;
+        }
+
+        .footer-contact {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 11px;
+        }
+
+        .footer-social {
+            display: inline-flex;
+            gap: 10px;
+            color: #d9d9d9;
+            margin-top: 10px;
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-line a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .site-header { padding: 15px 20px; }
-            .logo-container img { height: 40px; }
-            .usacli-container img { height: 30px; }
-            nav { gap: 15px; }
-            nav a { font-size: 11px; }
-            h1 { font-size: 36px; }
-            .subtitle { font-size: 14px; }
-            
+            .site-header {
+                padding: 15px 20px;
+            }
+
+            .logo-container img {
+                height: 40px;
+            }
+
+            .usacli-container img {
+                height: 30px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
             /* Su mobile le card sono una sotto l'altra, resettiamo il footer */
-            .footer-inner { display: flex; flex-direction: column; text-align: center; }
-            .footer-contact { position: relative; right: auto; bottom: auto; margin-top: 20px; }
-            .footer-social { justify-content: center; }
+            .footer-inner {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 20px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -247,9 +382,10 @@
         <p class="subtitle">Le persone che lavorano dietro le quinte per rendere possibile ogni gara del campionato.</p>
 
         <div class="staff-grid">
-            
+
             <div class="staff-card">
-                <img src="img/francesco-rotella-dir.jpeg" class="staff-photo" alt="Presidente" onerror="this.src='img/logo-gravity.png'" style="object-position: center 10%;">
+                <img src="img/francesco-rotella-dir.jpeg" class="staff-photo" alt="Presidente"
+                    onerror="this.src='img/logo-gravity.png'" style="object-position: center 10%;">
                 <div class="staff-info">
                     <div class="role">Presidente ASD SPEED DOWN PROJECT</div>
                     <h3 class="name">Francesco Rotella</h3>
@@ -258,7 +394,8 @@
             </div>
 
             <div class="staff-card">
-                <img src="img/staff-vice.png" class="staff-photo" alt="Vice Presidente" onerror="this.src='img/logo-gravity.png'">
+                <img src="img/antonio-verre-dir.jpeg" class="staff-photo" alt="Vice Presidente"
+                    onerror="this.src='img/logo-gravity.png'">
                 <div class="staff-info">
                     <div class="role">Vice Presidente</div>
                     <h3 class="name">Antonio Verre</h3>
@@ -267,7 +404,8 @@
             </div>
 
             <div class="staff-card">
-                <img src="img/pina-melina-dir.jpeg" class="staff-photo" alt="Segretario" onerror="this.src='img/logo-gravity.png'" style="object-position: center 10%;" >
+                <img src="img/pina-melina-dir.jpeg" class="staff-photo" alt="Segretario"
+                    onerror="this.src='img/logo-gravity.png'" style="object-position: center 10%;">
                 <div class="staff-info">
                     <div class="role">Tesoreria</div>
                     <h3 class="name">Pina Melina</h3>
@@ -275,12 +413,23 @@
                 </div>
             </div>
 
-             <div class="staff-card">
-                <img src="img/staff-direttore.png" class="staff-photo" alt="Direttore Gara" onerror="this.src='img/logo-gravity.png'">
+            <div class="staff-card">
+                <img src="img/staff-direttore.png" class="staff-photo" alt="Direttore Gara"
+                    onerror="this.src='img/logo-gravity.png'">
                 <div class="staff-info">
                     <div class="role">Consigliere</div>
                     <h3 class="name">Patrick quinzi</h3>
                     <p class="bio">Supervisore tecnico </p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <img src="img/francesco-de-donato-dir.jpeg" class="staff-photo" alt="Consigliere / Ispettore di Gara"
+                    onerror="this.src='img/logo-gravity.png'" style="object-position: center 10%;">
+                <div class="staff-info">
+                    <div class="role">Consigliere / Ispettore di Gara</div>
+                    <h3 class="name">Francesco De Donato</h3>
+                    <p class="bio">Responsabile per le ispezioni di gara e verifiche tecniche sul percorso</p>
                 </div>
             </div>
 
@@ -295,9 +444,11 @@
             <div class="footer-line">88040 - Settingiano (CZ)</div>
             <div class="footer-line">C.F. 97098810795</div>
             <div class="footer-line footer-social">
-                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Speed Down Project">
+                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook Speed Down Project">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z"/>
+                        <path fill="currentColor"
+                            d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z" />
                     </svg>
                 </a>
             </div>
@@ -305,15 +456,16 @@
                 <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
             </div>
         </div>
-      <div class="site-credits">
-    Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
-    <span class="separator">&bull;</span>
-    <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-    </a>
-</div>
+        <div class="site-credits">
+            Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
+            <span class="separator">&bull;</span>
+            <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+            </a>
+        </div>
     </footer>
 
     <script>
@@ -329,4 +481,5 @@
         })();
     </script>
 </body>
+
 </html>
