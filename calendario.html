@@ -2,85 +2,241 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario Gare 2026 - Gravity Race</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo-gravity.png" type="image/png">
     <style>
         :root {
             --accent-red: #e10600;
+            --bright-red: #ff4d4d; /* Nuovo rosso più luminoso per il testo su scuro */
             --text-dark: #111111;
-            --header-bg: #000000;
-            --bg-dark: #1a1a1a;
         }
-        body { background-color: var(--bg-dark); margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: white; }
         
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a; 
+            position: relative; 
+            color: white;
+        }
+
+        /* SFONDO SFOCATO (uguale alle altre pagine) */
+        body::before {
+            content: "";
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; 
+            background-image: url('img/landing-bg.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.7); 
+            -webkit-filter: blur(8px) brightness(0.7);
+            transform: scale(1.05);
+        }
+        /* STILE CREDIT CON ICONA */
+.site-credits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Spazio tra gli elementi */
+    
+    font-size: 9px;
+    font-weight: 300;
+    color: #333;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.site-credits a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex; /* Per allineare l'SVG */
+    align-items: center;
+}
+
+.site-credits .separator {
+    font-size: 8px;
+    color: #333;
+}
+
+/* Dimensione icona Instagram */
+.site-credits svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor; /* Prende il colore del testo */
+    margin-top: -1px; /* Piccola correzione ottica */
+}
+
+/* Effetto Hover: tutto diventa rosso */
+.site-credits a:hover {
+    color: var(--accent-red);
+    opacity: 1;
+    cursor: pointer;
+}
+        /* HEADER TRASPARENTE */
         .site-header { 
-            background-color: var(--header-bg); padding: 10px 40px; display: flex; 
-            align-items: center; justify-content: space-between; position: sticky; 
-            top: 0; z-index: 100; border-bottom: 2px solid var(--accent-red); 
+            background-color: transparent; 
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: 20px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            position: sticky; top: 0; z-index: 100; 
         }
 
         .logo-container img { height: 60px; display: block; }
-        .header-title { color: white; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 1px; flex-grow: 1; text-align: center; }
         
-        .usacli-container { background-color: white; padding: 5px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .usacli-container { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(5px); 
+            padding: 5px; border-radius: 4px; display: flex; align-items: center; justify-content: center; 
+        }
         .usacli-container img { height: 45px; width: auto; }
 
-        nav a { color: #aaa; text-decoration: none; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; margin: 0 15px; transition: 0.3s; }
+        nav a { color: #ccc; text-decoration: none; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; margin: 0 15px; transition: 0.3s; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         nav a:hover, nav a.active { color: white; border-bottom: 2px solid var(--accent-red); }
 
+        /* CONTENUTO PAGINA */
         .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
         
+        h1.page-title {
+            font-family: 'Archivo Black'; 
+            text-transform: uppercase; 
+            margin-bottom: 5px;
+            font-size: 48px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8); /* Ombra per staccare il titolo dallo sfondo */
+        }
+
+        p.page-subtitle {
+            color: var(--bright-red); 
+            font-weight: 900; 
+            margin-bottom: 40px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,1);
+        }
+
+        /* TABELLA CON EFFETTO VETRO (GLASSMORPHISM) */
         .calendar-card {
-            background: #222;
-            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.75); /* Nero semitrasparente */
+            backdrop-filter: blur(15px); /* Sfocatura forte dietro la tabella */
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Bordino sottile */
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Ombra profonda */
         }
 
         .calendar-table { width: 100%; border-collapse: collapse; }
-        .calendar-table th { background: var(--accent-red); color: white; padding: 18px; text-align: left; font-family: 'Archivo Black'; text-transform: uppercase; font-size: 14px; }
-        .calendar-table td { padding: 18px; border-bottom: 1px solid #333; vertical-align: middle; }
-        .calendar-table tr:hover { background: #2a2a2a; }
         
-        .date-cell { font-family: 'Archivo Black'; color: var(--accent-red); font-size: 18px; white-space: nowrap; width: 20%; }
-        .event-cell { width: 50%; }
-        .event-name { display: block; font-weight: 800; text-transform: uppercase; font-size: 16px; margin-bottom: 4px; }
-        .championship-tag { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .location-cell { font-weight: 700; text-transform: uppercase; color: #ddd; font-size: 14px; width: 30%; }
+        /* INTESTAZIONE TABELLA ROSSA */
+        .calendar-table th { 
+            background: linear-gradient(90deg, #e10600 0%, #900400 100%); /* Gradiente rosso */
+            color: white; 
+            padding: 22px; 
+            text-align: left; 
+            font-family: 'Archivo Black'; 
+            text-transform: uppercase; 
+            font-size: 15px; 
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* RIGHE TABELLA */
+        .calendar-table td { 
+            padding: 20px; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Riga sottilissima */
+            vertical-align: middle; 
+        }
+        
+        .calendar-table tr:last-child td { border-bottom: none; }
+        
+        .calendar-table tr { transition: background-color 0.3s; }
+        .calendar-table tr:hover { background-color: rgba(255, 255, 255, 0.1); } /* Effetto hover */
+        
+        /* CELLE SPECIFICHE */
+        .date-cell { 
+            font-family: 'Archivo Black'; 
+            color: var(--bright-red); /* Rosso acceso */
+            font-size: 18px; 
+            white-space: nowrap; 
+            width: 15%; 
+            text-shadow: 0 0 10px rgba(225, 6, 0, 0.2);
+        }
+        
+        .event-cell { width: 55%; }
+        .event-name { display: block; font-weight: 800; text-transform: uppercase; font-size: 17px; margin-bottom: 6px; color: white; }
+        .championship-tag { font-size: 12px; color: #bbb; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .location-cell { 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            color: #fff; /* Bianco puro */
+            font-size: 14px; 
+            width: 30%; 
+            text-align: right;
+        }
 
-        .disclaimer { margin-top: 30px; padding: 15px; border-left: 4px solid #555; background: #222; color: #aaa; font-size: 13px; font-style: italic; }
-        .site-footer { background: #0d0d0d; border-top: 2px solid var(--accent-red); color: #bbb; padding: 36px 20px; margin-top: 40px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; position: relative; padding-bottom: 16px; }
+        .disclaimer { 
+            margin-top: 30px; 
+            padding: 15px; 
+            border-left: 4px solid var(--accent-red); 
+            background: rgba(0,0,0,0.8); 
+            color: #ccc; 
+            font-size: 13px; 
+            font-style: italic; 
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* FOOTER */
+        .site-footer { background: #0d0d0d; border-top: 2px solid var(--accent-red); color: #bbb; padding: 36px 20px; margin-top: 60px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; position: relative; }
         .footer-title { font-family: 'Archivo Black', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; }
         .footer-line { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: #9a9a9a; }
         .footer-line.strong { color: #e6e6e6; font-weight: 800; }
-        .footer-line a { color: #e6e6e6; text-decoration: none; }
-        .footer-line a:hover { color: #ffffff; }
-        .footer-contact { position: absolute; right: 0; bottom: 0; font-size: 11px; letter-spacing: 0.4px; }
-        .footer-social { display: inline-flex; align-items: center; gap: 10px; color: #d9d9d9; }
-        .footer-social a { color: inherit; display: inline-flex; align-items: center; }
-        .footer-social a:hover { color: #ffffff; opacity: 0.85; }
-        .footer-social svg { width: 18px; height: 18px; display: block; }
+        .footer-contact { position: absolute; right: 0; bottom: 0; font-size: 11px; }
+        .footer-social { display: inline-flex; gap: 10px; color: #d9d9d9; margin-top: 10px;}
+        .footer-social svg { width: 20px; height: 20px; }
+        .footer-line a { color: inherit; text-decoration: none; }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .site-header { padding: 15px 20px; }
+            .logo-container img { height: 40px; }
+            .usacli-container img { height: 30px; }
+            h1.page-title { font-size: 32px; }
+            .date-cell { font-size: 14px; }
+            .event-name { font-size: 14px; }
+            .location-cell { font-size: 12px; }
+            .calendar-table th, .calendar-table td { padding: 15px 10px; }
+        }
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="logo-container">
-            <img src="img/logo-gravity.png" alt="Gravity Logo">
+            <a href="index.html"><img src="img/logo-gravity.png" alt="Gravity Logo"></a>
         </div>
         <nav>
-        <a href="piloti.html">Piloti</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="direttivo.html">Direttivo</a>
-         </nav>
+            <a href="piloti.html">Piloti</a>
+            <a href="calendario.html" class="active">Calendario</a>
+            <a href="direttivo.html">Direttivo</a>
+        </nav>
         <div class="usacli-container">
             <img src="img/logo-usacli.png" alt="Logo USAcli">
         </div>
     </header>
 
     <div class="container">
-        <h1 style="font-family: 'Archivo Black'; text-transform: uppercase; margin-bottom: 5px;">Calendario 2026</h1>
-        <p style="color: var(--accent-red); font-weight: 900; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px;">
+        <h1 class="page-title">Calendario 2026</h1>
+        <p class="page-subtitle">
             8° Campionato Interregionale & 2° Campionato Nazionale USACLI
         </p>
 
@@ -174,6 +330,7 @@
             Le date sopra indicate potrebbero essere soggette a variazioni. Si prega di consultare regolarmente il sito per aggiornamenti.
         </div>
     </div>
+
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-title">Contatti</div>
@@ -192,7 +349,17 @@
                 <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
             </div>
         </div>
+        <div class="site-credits">
+    Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
+    <span class="separator">&bull;</span>
+    <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+</div>
     </footer>
+
     <script>
         (function () {
             var user = "gravityraceproject";
