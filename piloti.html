@@ -158,6 +158,39 @@
             width: auto;
         }
 
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 200;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
         /* GRIGLIA PILOTI */
         .grid-container {
             display: grid;
@@ -504,23 +537,68 @@
         @media (max-width: 768px) {
             .site-header {
                 padding: 10px 15px;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: flex;
+                order: 3;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 4;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 12px;
+                margin-top: 15px;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                gap: 0;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0;
+                padding: 14px 20px;
+                font-size: 14px;
+                text-align: center;
+                border-bottom: none !important;
+                padding-bottom: 14px;
+            }
+
+            nav a:hover,
+            nav a.active {
+                background: rgba(225, 6, 0, 0.15);
+                border-bottom: none !important;
+            }
+
+            nav a.active {
+                color: var(--accent-red);
+            }
+
+            .logo-container {
+                order: 1;
             }
 
             .logo-container img {
                 height: 35px;
             }
 
+            .usacli-container {
+                order: 2;
+            }
+
             .usacli-container img {
                 height: 30px;
-            }
-
-            nav {
-                gap: 15px;
-                margin: 0 10px;
-            }
-
-            nav a {
-                font-size: 11px;
             }
 
             .filter-bar {
@@ -606,6 +684,24 @@
             .nickname {
                 display: none;
             }
+
+            /* Footer mobile */
+            .footer-inner {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 20px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -615,7 +711,7 @@
         <div class="logo-container">
             <a href="index.html"><img src="img/logo-gravity.webp" alt="Gravity Logo" width="60" height="60"></a>
         </div>
-        <nav>
+        <nav id="mainNav">
             <a href="piloti.html" class="active">Piloti</a>
             <a href="calendario.html">Calendario</a>
             <a href="direttivo.html">Direttivo</a>
@@ -624,6 +720,11 @@
         <div class="usacli-container">
             <img src="img/logo-usacli.webp" alt="Logo USAcli" width="45" height="45">
         </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <div class="filter-bar" id="filterBar">
@@ -1406,6 +1507,12 @@
                 link.textContent = "Contattaci";
             }
         })();
+
+        // Hamburger menu
+        document.getElementById('hamburgerBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('mainNav').classList.toggle('open');
+        });
 
         // === CATEGORY FILTER SYSTEM ===
         (function () {

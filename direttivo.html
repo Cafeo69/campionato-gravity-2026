@@ -133,6 +133,12 @@
             width: auto;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
         nav a {
             color: #ccc;
             text-decoration: none;
@@ -148,6 +154,39 @@
         nav a.active {
             color: white;
             border-bottom: 2px solid var(--accent-red);
+        }
+
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 200;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         /* CONTENUTO DIRETTIVO */
@@ -325,34 +364,102 @@
         /* MOBILE */
         @media (max-width: 768px) {
             .site-header {
-                padding: 15px 20px;
+                padding: 12px 15px;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: flex;
+                order: 3;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 4;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 12px;
+                margin-top: 15px;
+                padding: 10px 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0;
+                padding: 14px 20px;
+                font-size: 14px;
+                text-align: center;
+                border-bottom: none !important;
+            }
+
+            nav a:hover,
+            nav a.active {
+                background: rgba(225, 6, 0, 0.15);
+                border-bottom: none !important;
+            }
+
+            nav a.active {
+                color: var(--accent-red);
+            }
+
+            .logo-container {
+                order: 1;
             }
 
             .logo-container img {
                 height: 40px;
             }
 
+            .usacli-container {
+                order: 2;
+            }
+
             .usacli-container img {
                 height: 30px;
             }
 
-            nav {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 11px;
-            }
-
             h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .subtitle {
                 font-size: 14px;
+                margin-bottom: 40px;
             }
 
-            /* Su mobile le card sono una sotto l'altra, resettiamo il footer */
+            .staff-container {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .staff-grid {
+                gap: 25px;
+            }
+
+            .staff-photo {
+                height: 260px;
+            }
+
+            .staff-info {
+                padding: 20px 15px;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .bio {
+                font-size: 13px;
+            }
+
+            /* Footer mobile */
             .footer-inner {
                 display: flex;
                 flex-direction: column;
@@ -379,7 +486,7 @@
         <div class="logo-container">
             <a href="index.html"><img src="img/logo-gravity.webp" alt="Gravity Logo" width="60" height="60"></a>
         </div>
-        <nav>
+        <nav id="mainNav">
             <a href="piloti.html">Piloti</a>
             <a href="calendario.html">Calendario</a>
             <a href="direttivo.html" class="active">Direttivo</a>
@@ -388,6 +495,11 @@
         <div class="usacli-container">
             <img src="img/logo-usacli.webp" alt="Logo USAcli" width="45" height="45">
         </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <div class="staff-container">
@@ -494,6 +606,12 @@
                 link.textContent = "Contattaci";
             }
         })();
+
+        // Hamburger menu
+        document.getElementById('hamburgerBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('mainNav').classList.toggle('open');
+        });
     </script>
 </body>
 

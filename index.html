@@ -271,38 +271,56 @@
 
         /* --- MOBILE --- */
         @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                padding: 20px 15px;
+            }
+
             h1 {
                 font-size: 42px;
             }
 
             p.subtitle {
-                font-size: 16px;
+                font-size: 15px;
+                padding: 0 10px;
             }
 
             .main-logo {
-                width: 140px;
+                width: 120px;
+                margin-bottom: 20px;
             }
 
             .btn {
                 width: 100%;
                 text-align: center;
-                padding: 15px 20px;
+                padding: 14px 20px;
+                font-size: 14px;
+                clip-path: none;
             }
 
             .cta-container {
                 flex-direction: column;
                 width: 100%;
                 max-width: 300px;
-                gap: 15px;
+                gap: 12px;
                 margin: 0 auto;
             }
 
             .usacli-box img {
-                height: 40px;
+                height: 35px;
+            }
+
+            .usacli-box {
+                padding: 8px 16px;
             }
 
             .sponsors-footer {
-                bottom: 20px;
+                bottom: 15px;
+                gap: 10px;
+            }
+
+            p.by-line {
+                margin-bottom: 30px;
             }
         }
     </style>
