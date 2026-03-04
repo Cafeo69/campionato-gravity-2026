@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario Gare 2026 - Gravity Race</title>
+    <title>Partner - Gravity Race 2026</title>
+    <meta name="description"
+        content="I partner ufficiali del Campionato Gravity Race 2026 - MRX Kart, Green Mamba, FICR">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap"
@@ -14,7 +16,6 @@
         :root {
             --accent-red: #e10600;
             --bright-red: #ff4d4d;
-            /* Nuovo rosso più luminoso per il testo su scuro */
             --text-dark: #111111;
         }
 
@@ -27,7 +28,7 @@
             color: white;
         }
 
-        /* SFONDO SFOCATO (uguale alle altre pagine) */
+        /* SFONDO SFOCATO */
         body::before {
             content: "";
             position: fixed;
@@ -44,14 +45,12 @@
             transform: scale(1.05);
         }
 
-        /* STILE CREDIT CON ICONA */
+        /* CREDITS */
         .site-credits {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            /* Spazio tra gli elementi */
-
             font-size: 9px;
             font-weight: 300;
             color: #333;
@@ -69,7 +68,6 @@
             font-weight: 600;
             transition: all 0.3s ease;
             display: flex;
-            /* Per allineare l'SVG */
             align-items: center;
         }
 
@@ -78,17 +76,13 @@
             color: #333;
         }
 
-        /* Dimensione icona Instagram */
         .site-credits svg {
             width: 10px;
             height: 10px;
             fill: currentColor;
-            /* Prende il colore del testo */
             margin-top: -1px;
-            /* Piccola correzione ottica */
         }
 
-        /* Effetto Hover: tutto diventa rosso */
         .site-credits a:hover {
             color: var(--accent-red);
             opacity: 1;
@@ -145,137 +139,170 @@
             border-bottom: 2px solid var(--accent-red);
         }
 
-        /* CONTENUTO PAGINA */
-        .container {
+        /* PARTNER SECTION */
+        .partner-container {
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 60px auto;
             padding: 0 20px;
+            text-align: center;
         }
 
-        h1.page-title {
-            font-family: 'Archivo Black';
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
             font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-            /* Ombra per staccare il titolo dallo sfondo */
         }
 
-        p.page-subtitle {
+        .subtitle {
             color: var(--bright-red);
-            font-weight: 900;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-        }
-
-        /* TABELLA CON EFFETTO VETRO (GLASSMORPHISM) */
-        .calendar-card {
-            background-color: rgba(0, 0, 0, 0.75);
-            /* Nero semitrasparente */
-            backdrop-filter: blur(15px);
-            /* Sfocatura forte dietro la tabella */
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Bordino sottile */
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            /* Ombra profonda */
-        }
-
-        .calendar-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        /* INTESTAZIONE TABELLA ROSSA */
-        .calendar-table th {
-            background: linear-gradient(90deg, #e10600 0%, #900400 100%);
-            /* Gradiente rosso */
-            color: white;
-            padding: 22px;
-            text-align: left;
-            font-family: 'Archivo Black';
-            text-transform: uppercase;
-            font-size: 15px;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* RIGHE TABELLA */
-        .calendar-table td {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            /* Riga sottilissima */
-            vertical-align: middle;
-        }
-
-        .calendar-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .calendar-table tr {
-            transition: background-color 0.3s;
-        }
-
-        .calendar-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Effetto hover */
-
-        /* CELLE SPECIFICHE */
-        .date-cell {
-            font-family: 'Archivo Black';
-            color: var(--bright-red);
-            /* Rosso acceso */
-            font-size: 18px;
-            white-space: nowrap;
-            width: 15%;
-            text-shadow: 0 0 10px rgba(225, 6, 0, 0.2);
-        }
-
-        .event-cell {
-            width: 55%;
-        }
-
-        .event-name {
-            display: block;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 17px;
-            margin-bottom: 6px;
-            color: white;
-        }
-
-        .championship-tag {
-            font-size: 12px;
-            color: #bbb;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .location-cell {
+            font-size: 16px;
             font-weight: 700;
             text-transform: uppercase;
-            color: #fff;
-            /* Bianco puro */
-            font-size: 14px;
-            width: 30%;
-            text-align: right;
+            letter-spacing: 1px;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
         }
 
-        .disclaimer {
-            margin-top: 30px;
-            padding: 15px;
-            border-left: 4px solid var(--accent-red);
-            background: rgba(0, 0, 0, 0.8);
-            color: #ccc;
+        /* PARTNER GRID */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* PARTNER CARD */
+        .partner-card {
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-bottom: 4px solid var(--accent-red);
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(225, 6, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Logo container — sfondo chiaro per visibilità loghi */
+        .partner-logo-wrap {
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            min-height: 120px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo-wrap {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .partner-logo-wrap img {
+            max-height: 80px;
+            max-width: 200px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo-wrap img {
+            transform: scale(1.05);
+        }
+
+        /* Info sotto il logo */
+        .partner-info {
+            padding: 24px 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .partner-name {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .partner-desc {
             font-size: 13px;
-            font-style: italic;
-            border-radius: 0 8px 8px 0;
+            color: #aaa;
+            line-height: 1.5;
+            font-weight: 300;
+            margin: 0 0 16px 0;
+        }
+
+        .partner-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--bright-red);
+            transition: color 0.3s ease, gap 0.3s ease;
+        }
+
+        .partner-card:hover .partner-link {
+            color: white;
+            gap: 10px;
+        }
+
+        .partner-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-card:hover .partner-link svg {
+            transform: translateX(3px);
+        }
+
+        /* ANIMAZIONI INGRESSO */
+        .partner-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .partner-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .partner-card:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .partner-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* FOOTER */
@@ -284,7 +311,8 @@
             border-top: 2px solid var(--accent-red);
             color: #bbb;
             padding: 36px 20px;
-            margin-top: 60px;
+            margin-top: 80px;
+            text-align: left;
         }
 
         .footer-inner {
@@ -339,7 +367,7 @@
             text-decoration: none;
         }
 
-        /* MOBILE OPTIMIZATION */
+        /* MOBILE */
         @media (max-width: 768px) {
             .site-header {
                 padding: 15px 20px;
@@ -353,141 +381,158 @@
                 height: 30px;
             }
 
-            h1.page-title {
+            nav a {
+                font-size: 11px;
+                margin: 0 8px;
+            }
+
+            h1 {
                 font-size: 32px;
             }
 
-            .date-cell {
-                font-size: 14px;
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 40px;
             }
 
-            .event-name {
-                font-size: 14px;
+            .partner-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
-            .location-cell {
-                font-size: 12px;
+            .partner-logo-wrap {
+                min-height: 100px;
+                padding: 25px 15px;
             }
 
-            .calendar-table th,
-            .calendar-table td {
-                padding: 15px 10px;
+            .partner-logo-wrap img {
+                max-height: 60px;
+            }
+
+            .footer-inner {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 20px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* TABLET */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .partner-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
         }
     </style>
 </head>
 
 <body>
+
     <header class="site-header">
         <div class="logo-container">
             <a href="index.html"><img src="img/logo-gravity.webp" alt="Gravity Logo" width="60" height="60"></a>
         </div>
         <nav>
             <a href="piloti.html">Piloti</a>
-            <a href="calendario.html" class="active">Calendario</a>
+            <a href="calendario.html">Calendario</a>
             <a href="direttivo.html">Direttivo</a>
-            <a href="partner.html">Partner</a>
+            <a href="partner.html" class="active">Partner</a>
         </nav>
         <div class="usacli-container">
             <img src="img/logo-usacli.webp" alt="Logo USAcli" width="45" height="45">
         </div>
     </header>
 
-    <div class="container">
-        <h1 class="page-title">Calendario 2026</h1>
-        <p class="page-subtitle">
-            8° Campionato Interregionale & 2° Campionato Nazionale USACLI
-        </p>
+    <div class="partner-container">
+        <h1>Partner</h1>
+        <p class="subtitle">Le aziende e gli enti che rendono possibile il Campionato Gravity Race 2026</p>
 
-        <div class="calendar-card">
-            <table class="calendar-table">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Gara</th>
-                        <th>Località</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="date-cell">18/19 APR</td>
-                        <td class="event-cell">
-                            <span class="event-name">1° Gravity Race Car Città di Montalbano Ionico</span>
-                            <span class="championship-tag">Campionato Nazionale USACLI</span>
-                        </td>
-                        <td class="location-cell">Montalbano Ionico (MT)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">09/10 MAG</td>
-                        <td class="event-cell">
-                            <span class="event-name">1° Gravity Race Car Santa Maria di Catanzaro</span>
-                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
-                        </td>
-                        <td class="location-cell">Catanzaro (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">06/07 GIU</td>
-                        <td class="event-cell">
-                            <span class="event-name">2° Gravity Race Cup Nocera Terinese</span>
-                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
-                        </td>
-                        <td class="location-cell">Nocera Terinese (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">27/28 GIU</td>
-                        <td class="event-cell">
-                            <span class="event-name">3° Gravity Race Car Ferrito-Pratora</span>
-                            <span class="championship-tag">Tiriolo Race Day</span>
-                        </td>
-                        <td class="location-cell">Tiriolo (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">25/26 LUG</td>
-                        <td class="event-cell">
-                            <span class="event-name">1° Gravity Race Car Città di Antillo o Roccafiorita</span>
-                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
-                        </td>
-                        <td class="location-cell">Antillo o Roccafiorita (ME)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">22/23 AGO</td>
-                        <td class="event-cell">
-                            <span class="event-name">1° Gravity Race Car Squillace</span>
-                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
-                        </td>
-                        <td class="location-cell">Squillace (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">26/27 SET</td>
-                        <td class="event-cell">
-                            <span class="event-name">2° Gravity Race Car Città di S. Andrea Apostolo</span>
-                            <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
-                        </td>
-                        <td class="location-cell">S. Andrea Apostolo (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">24/25 OTT</td>
-                        <td class="event-cell">
-                            <span class="event-name">5° Gravity Race Car Chianore Iuvoli</span>
-                            <span class="championship-tag">Settingiano Grand Prix</span>
-                        </td>
-                        <td class="location-cell">Settingiano (CZ)</td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">14/15 NOV</td>
-                        <td class="event-cell">
-                            <span class="event-name">3° Gravity Race Car Città di Savoca</span>
-                            <span class="championship-tag">Finale di Stagione</span>
-                        </td>
-                        <td class="location-cell">Savoca (ME)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="partner-grid">
 
-        <div class="disclaimer">
-            Le date sopra indicate potrebbero essere soggette a variazioni. Si prega di consultare regolarmente il sito
-            per aggiornamenti.
+            <!-- MRX KART -->
+            <a href="https://www.mrxkart.com" target="_blank" rel="noopener noreferrer" class="partner-card"
+                id="partner-mrxkart">
+                <div class="partner-logo-wrap">
+                    <picture>
+                        <source srcset="img/logo-mrxkart.webp" type="image/webp">
+                        <img src="img/logo-mrxkart.png" alt="MRX Kart Logo" width="200" height="67" loading="lazy">
+                    </picture>
+                </div>
+                <div class="partner-info">
+                    <h2 class="partner-name">MRX Kart</h2>
+                    <p class="partner-desc">Produttore di kart da competizione e fornitore ufficiale del campionato.</p>
+                    <span class="partner-link">
+                        Visita il sito
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                            <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- GREEN MAMBA -->
+            <a href="https://www.greenmamba.it" target="_blank" rel="noopener noreferrer" class="partner-card"
+                id="partner-greenmamba">
+                <div class="partner-logo-wrap">
+                    <picture>
+                        <source srcset="img/logo-greenmamba.webp" type="image/webp">
+                        <img src="img/logo-greenmamba.png" alt="Green Mamba Logo" width="200" height="29"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="partner-info">
+                    <h2 class="partner-name">Green Mamba</h2>
+                    <p class="partner-desc">Speeddown Cars — progettazione e costruzione di vetture da discesa.</p>
+                    <span class="partner-link">
+                        Visita il sito
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                            <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- FICR -->
+            <a href="https://salita.ficr.it/#/SAL/generalschedule/2026/*/*" target="_blank" rel="noopener noreferrer"
+                class="partner-card" id="partner-ficr">
+                <div class="partner-logo-wrap">
+                    <picture>
+                        <source srcset="img/logo-ficr.webp" type="image/webp">
+                        <img src="img/logo-ficr.png" alt="FICR Logo" width="200" height="111" loading="lazy">
+                    </picture>
+                </div>
+                <div class="partner-info">
+                    <h2 class="partner-name">FICR</h2>
+                    <p class="partner-desc">Federazione Italiana Cronometristi — cronometraggio ufficiale delle gare.
+                    </p>
+                    <span class="partner-link">
+                        Calendario Gare FICR
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                            <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
         </div>
     </div>
 

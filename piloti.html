@@ -404,6 +404,91 @@
             display: block;
         }
 
+        /* FILTER BAR */
+        .filter-bar {
+            max-width: 1400px;
+            margin: 30px auto 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar .filter-label {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 1px;
+            margin-right: 5px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #aaa;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            background: rgba(225, 6, 0, 0.15);
+            border-color: rgba(225, 6, 0, 0.4);
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(225, 6, 0, 0.4);
+        }
+
+        .filter-count {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #666;
+            margin-left: auto;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-count span {
+            color: var(--accent-red);
+            font-weight: 900;
+        }
+
+        .driver-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+        }
+
+        .driver-card.hidden-card {
+            display: none;
+        }
+
+        .driver-card.fade-in {
+            animation: cardFadeIn 0.4s ease forwards;
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         /* --- OTTIMIZZAZIONE MOBILE: 2 CARD PER RIGA --- */
         @media (max-width: 768px) {
             .site-header {
@@ -425,6 +510,29 @@
 
             nav a {
                 font-size: 11px;
+            }
+
+            .filter-bar {
+                margin-top: 15px;
+                gap: 6px;
+                padding: 0 10px;
+            }
+
+            .filter-bar .filter-label {
+                font-size: 10px;
+                width: 100%;
+                margin-bottom: 2px;
+            }
+
+            .filter-btn {
+                font-size: 9px;
+                padding: 6px 12px;
+            }
+
+            .filter-count {
+                font-size: 10px;
+                width: 100%;
+                margin-top: 4px;
             }
 
             /* 1. GRIGLIA A 2 COLONNE */
@@ -500,13 +608,24 @@
             <a href="piloti.html" class="active">Piloti</a>
             <a href="calendario.html">Calendario</a>
             <a href="direttivo.html">Direttivo</a>
+            <a href="partner.html">Partner</a>
         </nav>
         <div class="usacli-container">
             <img src="img/logo-usacli.webp" alt="Logo USAcli" width="45" height="45">
         </div>
     </header>
 
-    <div class="grid-container">
+    <div class="filter-bar" id="filterBar">
+        <span class="filter-label">Filtra per:</span>
+        <button class="filter-btn active" data-filter="tutti" id="filter-tutti">Tutti</button>
+        <button class="filter-btn" data-filter="mini-kart" id="filter-mini-kart">Mini Kart</button>
+        <button class="filter-btn" data-filter="kart" id="filter-kart">Kart</button>
+        <button class="filter-btn" data-filter="FOLK" id="filter-FOLK">FOLK</button>
+        <button class="filter-btn" data-filter="formula-gravity" id="filter-formula-gravity">Formula Gravity</button>
+        <div class="filter-count" id="filterCount"></div>
+    </div>
+
+    <div class="grid-container" id="gridContainer">
 
         <div class="driver-card">
             <div class="race-number">903</div>
@@ -1217,7 +1336,7 @@
 
         <div class="driver-card">
             <div class="race-number">803</div>
-            <img src="img/antonio-verre.webp" class="driver-photo" loading="lazy">
+            <img src="img/antonio-verre.webp" class="driver-photo" loading="lazy" style="object-position: center 10%;">
             <div class="bottom-gradient"></div>
             <div class="info-panel">
                 <div class="category-badge">CATEGORIA C8</div>
@@ -1249,6 +1368,8 @@
             </div>
             <div class="footer-line footer-contact">
                 <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
+                <span style="margin: 0 6px; color: #555;">&bull;</span>
+                <a href="tel:+393283881783" aria-label="Presidenza">Presidenza</a>
             </div>
         </div>
         <div class="site-credits">
@@ -1264,8 +1385,8 @@
     </footer>
     <script>
         (function () {
-            var user = "gravityraceproject";
-            var domain = "gmail.com";
+            var user = "speeddownproject";
+            var domain = "hotmail.it";
             var email = user + "@" + domain;
             var link = document.getElementById("footer-email");
             if (link) {
@@ -1274,6 +1395,80 @@
             }
         })();
 
+        // === CATEGORY FILTER SYSTEM ===
+        (function () {
+            // Map category badge text to macro-category
+            function getCategories(badgeText) {
+                var text = badgeText.toUpperCase().replace('CATEGORIA ', '').trim();
+                var parts = text.split('|').map(function (p) { return p.trim(); });
+                var categories = [];
+                parts.forEach(function (part) {
+                    if (part === 'C9') {
+                        categories.push('mini-kart');
+                    } else if (part === 'N5K' || part === 'N5K PRO' || part === 'C8') {
+                        categories.push('kart');
+                    } else if (part === 'FOLK STORICO' || part === 'FOLK EVO' || part === 'FOLK') {
+                        categories.push('FOLK');
+                    } else if (part === 'C1' || part === 'C2' || part === 'C3' || part === 'C4') {
+                        categories.push('formula-gravity');
+                    }
+                });
+                return categories;
+            }
+
+            var cards = document.querySelectorAll('.driver-card');
+            var filterBtns = document.querySelectorAll('.filter-btn');
+            var filterCount = document.getElementById('filterCount');
+
+            // Assign data-categories to each card
+            cards.forEach(function (card) {
+                var badge = card.querySelector('.category-badge');
+                if (badge) {
+                    var cats = getCategories(badge.textContent);
+                    card.setAttribute('data-categories', cats.join(','));
+                }
+            });
+
+            function updateCount(count, total) {
+                filterCount.innerHTML = '<span>' + count + '</span> / ' + total + ' piloti';
+            }
+
+            updateCount(cards.length, cards.length);
+
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    // Update active state
+                    filterBtns.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    var filter = btn.getAttribute('data-filter');
+                    var visibleCount = 0;
+
+                    cards.forEach(function (card) {
+                        var cats = card.getAttribute('data-categories') || '';
+                        var show = (filter === 'tutti') || cats.split(',').indexOf(filter) !== -1;
+
+                        if (show) {
+                            card.classList.remove('hidden-card');
+                            card.classList.add('fade-in');
+                            visibleCount++;
+                        } else {
+                            card.classList.add('hidden-card');
+                            card.classList.remove('fade-in');
+                        }
+                    });
+
+                    updateCount(visibleCount, cards.length);
+
+                    // Remove animation class after it completes
+                    setTimeout(function () {
+                        cards.forEach(function (card) {
+                            card.classList.remove('fade-in');
+                        });
+                    }, 500);
+                });
+            });
+        })();
     </script>
 </body>
 
