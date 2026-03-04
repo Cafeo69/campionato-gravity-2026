@@ -473,11 +473,7 @@
             }
 
             .usacli-container {
-                order: 2;
-            }
-
-            .usacli-container img {
-                height: 30px;
+                display: none;
             }
 
             h1 {
@@ -485,41 +481,64 @@
             }
 
             .subtitle {
-                font-size: 13px;
-                margin-bottom: 35px;
+                font-size: 12px;
+                margin-bottom: 30px;
+                letter-spacing: 0.5px;
             }
 
             .partner-container {
-                margin: 30px auto;
+                margin: 25px auto;
                 padding: 0 15px;
             }
 
             .partner-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 400px;
+                gap: 16px;
+                max-width: 100%;
                 margin: 0 auto;
             }
 
+            .partner-card {
+                flex-direction: row;
+                border-radius: 10px;
+                border-bottom: none;
+                border-left: 4px solid var(--accent-red);
+            }
+
             .partner-logo-wrap {
-                min-height: 90px;
-                padding: 20px 15px;
+                min-height: auto;
+                padding: 15px;
+                width: 100px;
+                min-width: 100px;
+                border-bottom: none;
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 0;
             }
 
             .partner-logo-wrap img {
-                max-height: 55px;
+                max-height: 40px;
+                max-width: 70px;
             }
 
             .partner-info {
-                padding: 18px 15px;
+                padding: 14px 16px;
+                text-align: left;
             }
 
             .partner-name {
-                font-size: 16px;
+                font-size: 14px;
+                margin-bottom: 4px;
             }
 
             .partner-desc {
-                font-size: 12px;
+                font-size: 11px;
+                margin-bottom: 10px;
+                line-height: 1.4;
+                color: #999;
+            }
+
+            .partner-link {
+                font-size: 10px;
             }
 
             .site-footer {

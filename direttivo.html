@@ -418,11 +418,7 @@
             }
 
             .usacli-container {
-                order: 2;
-            }
-
-            .usacli-container img {
-                height: 30px;
+                display: none;
             }
 
             h1 {
@@ -430,33 +426,63 @@
             }
 
             .subtitle {
-                font-size: 14px;
-                margin-bottom: 40px;
+                font-size: 12px;
+                margin-bottom: 30px;
+                letter-spacing: 0.5px;
             }
 
             .staff-container {
-                margin: 30px auto;
+                margin: 25px auto;
                 padding: 0 15px;
             }
 
             .staff-grid {
-                gap: 25px;
+                gap: 14px;
+                grid-template-columns: 1fr;
+            }
+
+            .staff-card {
+                display: flex;
+                flex-direction: row;
+                border-radius: 10px;
+                border-bottom: none;
+                border-left: 4px solid var(--accent-red);
+                overflow: hidden;
             }
 
             .staff-photo {
-                height: 260px;
+                height: auto;
+                width: 110px;
+                min-width: 110px;
+                min-height: 130px;
+                object-fit: cover;
+                filter: grayscale(60%);
+                border-bottom: none;
             }
 
             .staff-info {
-                padding: 20px 15px;
+                padding: 14px 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .role {
+                font-size: 10px;
+                margin-bottom: 4px;
+                letter-spacing: 0.5px;
             }
 
             .name {
-                font-size: 20px;
+                font-size: 17px;
+                margin-bottom: 6px;
+                line-height: 1.1;
             }
 
             .bio {
-                font-size: 13px;
+                font-size: 11px;
+                line-height: 1.4;
+                color: #aaa;
             }
 
             /* Footer mobile */
