@@ -405,13 +405,14 @@
                 width: 100%;
                 order: 4;
                 flex-direction: column;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(15, 15, 15, 0.4);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 border-radius: 12px;
                 margin-top: 15px;
                 padding: 10px 0;
                 border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             }
 
             nav.open {
@@ -508,18 +509,20 @@
             }
 
             /* DATA: badge rosso pill in alto */
-            .date-cell {
-                font-size: 11px;
-                margin-bottom: 10px;
-                background: var(--accent-red);
+            .calendar-table td.date-cell {
+                font-size: 13px;
+                margin-bottom: 12px;
+                background: linear-gradient(135deg, var(--accent-red) 0%, #b30000 100%);
                 display: inline-block;
-                width: auto;
-                padding: 4px 12px;
-                border-radius: 20px;
+                width: max-content;
+                padding: 6px 16px;
+                border-radius: 6px;
                 color: white !important;
-                text-shadow: none;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
                 font-family: 'Archivo Black', sans-serif;
                 letter-spacing: 1px;
+                box-shadow: 0 6px 15px rgba(225, 6, 0, 0.4);
+                border: 1px solid rgba(255, 255, 255, 0.2);
             }
 
             .event-cell {
