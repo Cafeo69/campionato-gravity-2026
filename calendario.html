@@ -340,8 +340,17 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            gap: 12px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
             position: relative;
+            padding-bottom: 16px;
+        }
+
+        .footer-col-about p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #9a9a9a;
+            margin-top: 15px;
         }
 
         .footer-title {
@@ -350,12 +359,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 16px;
+            margin-bottom: 20px;
         }
 
         .footer-line {
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.6px;
+            margin-bottom: 5px;
             color: #9a9a9a;
         }
 
@@ -364,28 +375,53 @@
             font-weight: 800;
         }
 
-        .footer-contact {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            font-size: 11px;
+        .footer-line a {
+            color: #e6e6e6;
+            text-decoration: none;
+        }
+
+        .footer-line a:hover {
+            color: #ffffff;
         }
 
         .footer-social {
             display: inline-flex;
-            gap: 10px;
+            align-items: center;
+            gap: 12px;
             color: #d9d9d9;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
-        .footer-social svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer-line a {
+        .footer-social a {
             color: inherit;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent-red);
+            opacity: 1;
+        }
+
+        .history-link {
+            font-size: 11px;
+            color: var(--accent-red);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(225, 6, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        .history-link:hover {
+            color: white;
+            border-color: var(--accent-red);
+            background: var(--accent-red);
         }
 
         /* MOBILE OPTIMIZATION */
@@ -575,18 +611,17 @@
             .footer-inner {
                 display: flex;
                 flex-direction: column;
-                text-align: center;
+                text-align: left;
+                gap: 30px;
             }
 
-            .footer-contact {
-                position: relative;
-                right: auto;
-                bottom: auto;
-                margin-top: 20px;
+            .footer-col-about p {
+                font-size: 12px;
             }
 
             .footer-social {
-                justify-content: center;
+                justify-content: flex-start;
+                margin-top: 15px;
             }
 
             .container {
@@ -610,6 +645,7 @@
         <nav id="mainNav">
             <a href="piloti.html">Piloti</a>
             <a href="calendario.html" class="active">Calendario</a>
+            <a href="regolamento.html">Regolamento</a>
             <a href="direttivo.html">Direttivo</a>
             <a href="partner.html">Partner</a>
             <a href="https://www.facebook.com/share/g/1GuCqFAzjH/" target="_blank">Mercatino</a>
@@ -675,10 +711,10 @@
                     <tr>
                         <td class="date-cell">25/26 LUG</td>
                         <td class="event-cell">
-                            <span class="event-name">1° Gravity Race Car Città di Antillo o Roccafiorita</span>
+                            <span class="event-name">1° Gravity Race Car Città di Antillo</span>
                             <span class="championship-tag">Calabria/Sicilia/Basilicata</span>
                         </td>
-                        <td class="location-cell">Antillo o Roccafiorita (ME)</td>
+                        <td class="location-cell">Antillo (ME)</td>
                     </tr>
                     <tr>
                         <td class="date-cell">22/23 AGO</td>
@@ -724,24 +760,46 @@
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <div class="footer-title">Contatti</div>
-            <div class="footer-line strong">A.S.D. SPEED DOWN PROJECT</div>
-            <div class="footer-line">Via Madonna Della Rocca, 14</div>
-            <div class="footer-line">88040 - Settingiano (CZ)</div>
-            <div class="footer-line">C.F. 97098810795</div>
-            <div class="footer-line footer-social">
-                <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Facebook Speed Down Project">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path fill="currentColor"
-                            d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93z" />
-                    </svg>
-                </a>
+            <div class="footer-col-about">
+                <div class="footer-title">La Nostra Storia</div>
+                <p style="margin-top: 15px; margin-bottom: 20px;">
+                    Scopri le radici di <strong>ASD Speed Down Project</strong>, dal sogno di Francesco Rotella nel 2009
+                    fino ai vertici del panorama nazionale USACLI.
+                </p>
+                <a href="storia.html" class="history-link">Scopri di piú</a>
             </div>
-            <div class="footer-line footer-contact">
-                <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
-                <span style="margin: 0 6px; color: #555;">&bull;</span>
-                <a href="tel:+393283881783" aria-label="Presidenza">Presidenza</a>
+            <div class="footer-col-contact">
+                <div class="footer-title">Contatti</div>
+                <div class="footer-line strong">ASD SPEED DOWN PROJECT</div>
+                <div class="footer-line">Via Madonna Della Rocca, 14</div>
+                <div class="footer-line">88040 - Settingiano (CZ)</div>
+                <div class="footer-line">C.F. 97098810795</div>
+                <div class="footer-line"><a href="mailto:speeddownproject@hotmail.it">speeddownproject@hotmail.it</a>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank"
+                        rel="noopener noreferrer" aria-label="Facebook Speed Down Project">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/speeddownproject" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-line" style="margin-top: 15px; font-size: 11px;">
+                    <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
+                    <span style="margin: 0 6px; color: #555;">&bull;</span>
+                    <a href="tel:+393283881783" aria-label="Presidenza">Presidenza</a>
+                </div>
             </div>
         </div>
         <div class="site-credits">

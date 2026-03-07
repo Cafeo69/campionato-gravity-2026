@@ -187,6 +187,25 @@
             transition: transform 0.3s ease;
         }
 
+        .history-link {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .history-link:hover {
+            color: white;
+            border-color: var(--accent-red);
+            background: rgba(225, 6, 0, 0.1);
+        }
+
         .usacli-box:hover {
             background-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
@@ -344,12 +363,15 @@
             <div class="cta-container">
                 <a href="piloti.html" class="btn btn-primary">Scopri i Piloti</a>
                 <a href="calendario.html" class="btn btn-outline">Calendario Gare</a>
+                <a href="regolamento.html" class="btn btn-outline">Regolamento</a>
                 <a href="https://www.facebook.com/share/g/1GuCqFAzjH/" target="_blank" class="btn btn-outline">Mercatino
                     Usato</a>
             </div>
         </div>
 
         <div class="sponsors-footer">
+
+            <a href="storia.html" class="history-link">La Nostra Storia</a>
 
             <div class="usacli-box">
                 <picture>
