@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sito ufficiale del Campionato Gravity Race 2026. Scopri i piloti, il calendario delle gare e il regolamento della Formula 1 a gravità organizzata da ASD Speed Down Project.">
     <title>Gravity Race 2026 - Official Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -465,6 +467,15 @@
 
             <a href="storia.html" class="history-link">La Nostra Storia</a>
 
+            <div class="footer-col-contact">
+                <div class="footer-title">Contatti</div>
+                <div class="footer-line strong">ASD SPEED DOWN PROJECT</div>
+                <div class="footer-line">Via Madonna Della Rocca, 14</div>
+                <div class="footer-line">88040 - Settingiano (CZ)</div>
+                <div class="footer-line">C.F. 97098810795</div>
+                <div class="footer-line"><a href="mailto:speeddownproject@hotmail.it">speeddownproject@hotmail.it</a>
+                </div>
+            </div>
             <div class="usacli-box">
                 <picture>
                     <source srcset="img/logo-usacli.webp" type="image/webp">
@@ -483,41 +494,44 @@
                             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                 </a>
+                <div class="landing-legal"
+                    style="font-size: 10px; color: #666; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8;">
+                    ASD SPEED DOWN PROJECT &bull; Via Madonna Della Rocca, 14 - 88040 Settingiano (CZ) &bull; C.F.
+                    97098810795
+                </div>
+
             </div>
-
-
         </div>
-    </div>
 
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-content">
-            <p>Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito. Proseguendo la navigazione
-                acconsenti al loro utilizzo. <a href="privacy.html">Leggi la Privacy Policy</a></p>
-            <button id="accept-cookies" class="cookie-btn">Ho capito</button>
+        <div id="cookie-banner" class="cookie-banner">
+            <div class="cookie-content">
+                <p>Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito. Proseguendo la navigazione
+                    acconsenti al loro utilizzo. <a href="privacy.html">Leggi la Privacy Policy</a></p>
+                <button id="accept-cookies" class="cookie-btn">Ho capito</button>
+            </div>
         </div>
-    </div>
 
-    <script>
-        // COOKIE BANNER LOGIC
-        (function () {
-            if (!localStorage.getItem('cookies-accepted')) {
-                var banner = document.getElementById('cookie-banner');
-                if (banner) {
-                    setTimeout(function () {
-                        banner.classList.add('show');
-                    }, 1500);
+        <script>
+            // COOKIE BANNER LOGIC
+            (function () {
+                if (!localStorage.getItem('cookies-accepted')) {
+                    var banner = document.getElementById('cookie-banner');
+                    if (banner) {
+                        setTimeout(function () {
+                            banner.classList.add('show');
+                        }, 1500);
+                    }
                 }
-            }
 
-            document.getElementById('accept-cookies')?.addEventListener('click', function () {
-                var banner = document.getElementById('cookie-banner');
-                if (banner) {
-                    banner.classList.remove('show');
-                    localStorage.setItem('cookies-accepted', 'true');
-                }
-            });
-        })();
-    </script>
+                document.getElementById('accept-cookies')?.addEventListener('click', function () {
+                    var banner = document.getElementById('cookie-banner');
+                    if (banner) {
+                        banner.classList.remove('show');
+                        localStorage.setItem('cookies-accepted', 'true');
+                    }
+                });
+            })();
+        </script>
 </body>
 
 </html>
