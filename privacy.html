@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regolamento - Gravity Race 2026</title>
+    <title>Privacy Policy - Gravity Race 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap"
@@ -87,11 +87,6 @@
             color: white;
         }
 
-        nav a.active {
-            color: white;
-            border-bottom: 2px solid var(--accent-red);
-        }
-
         .usacli-container {
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
@@ -128,114 +123,68 @@
             transition: all 0.3s ease;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* PROGRESS BAR */
-        .progress-container {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 75%;
-            background: var(--accent-red);
-            box-shadow: 0 0 15px var(--accent-red);
-            animation: progress-slide 3s ease-in-out infinite;
-        }
-
-        @keyframes progress-slide {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(150%);
-            }
-        }
-
         /* CONTENT */
-        .wip-container {
+        .privacy-container {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .wip-icon {
-            font-size: 80px;
-            margin-bottom: 30px;
-            color: var(--accent-red);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
         }
 
         h1 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 48px;
+            font-size: 36px;
             text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--accent-red);
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-top: 40px;
             margin-bottom: 20px;
-            letter-spacing: -1px;
+            color: white;
         }
 
         p {
-            font-size: 18px;
+            font-size: 16px;
             color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
-        .wip-badge {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 10px 25px;
-            font-family: 'Archivo Black', sans-serif;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(225, 6, 0, 0.3);
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            color: #ccc;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .contact-box {
+            background: rgba(225, 6, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-red);
+            margin-top: 30px;
         }
 
         /* FOOTER SITO */
         .site-footer {
-            background: #0d0d0d !important;
+            background: #0d0d0d;
             border-top: 2px solid var(--accent-red);
             color: #bbb;
             padding: 36px 20px;
@@ -254,16 +203,9 @@
             padding-bottom: 16px;
         }
 
-        .footer-col-about p {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #9a9a9a;
-            margin-top: 15px;
-        }
-
         .footer-title {
             font-family: 'Archivo Black', sans-serif;
-            color: #ffffff !important;
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 16px;
@@ -278,18 +220,9 @@
             color: #9a9a9a;
         }
 
-        .footer-line.strong {
-            color: #e6e6e6;
-            font-weight: 800;
-        }
-
         .footer-line a {
-            color: #e6e6e6 !important;
-            text-decoration: none !important;
-        }
-
-        .footer-line a:hover {
-            color: #ffffff !important;
+            color: #e6e6e6;
+            text-decoration: none;
         }
 
         .footer-social {
@@ -301,35 +234,14 @@
         }
 
         .footer-social a {
-            color: inherit !important;
+            color: inherit;
             display: inline-flex;
             align-items: center;
             transition: color 0.3s ease;
         }
 
         .footer-social a:hover {
-            color: var(--accent-red) !important;
-            opacity: 1;
-        }
-
-        .history-link {
-            font-size: 11px;
-            color: var(--accent-red) !important;
-            text-decoration: none !important;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(225, 6, 0, 0.3);
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-family: 'Archivo Black', sans-serif;
-        }
-
-        .history-link:hover {
-            color: white !important;
-            border-color: var(--accent-red) !important;
-            background: var(--accent-red) !important;
+            color: var(--accent-red);
         }
 
         /* MOBILE */
@@ -344,32 +256,15 @@
 
             nav {
                 display: none;
-                width: 100%;
-                flex-direction: column;
-                background: rgba(15, 15, 15, 0.95);
-                backdrop-filter: blur(20px);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 20px 0;
-                gap: 0;
             }
 
-            nav.open {
-                display: flex;
-            }
-
-            nav a {
-                padding: 15px 20px;
-                text-align: center;
-            }
-
-            .usacli-container {
-                display: none;
+            .privacy-container {
+                margin: 30px 15px;
+                padding: 25px;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .footer-inner {
@@ -501,7 +396,7 @@
         <nav id="mainNav">
             <a href="piloti.html">Piloti</a>
             <a href="calendario.html">Calendario</a>
-            <a href="regolamento.html" class="active">Regolamento</a>
+            <a href="regolamento.html">Regolamento</a>
             <a href="direttivo.html">Direttivo</a>
             <a href="partner.html">Partner</a>
             <a href="https://www.facebook.com/share/g/1GuCqFAzjH/" target="_blank">Mercatino</a>
@@ -516,33 +411,70 @@
         </button>
     </header>
 
-    <main class="wip-container">
-        <div class="wip-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                </path>
-            </svg>
-        </div>
-        <div class="wip-badge">Sessione Tecnica Aperta</div>
-        <h1>Regolamento <span>Gravity 2026</span></h1>
+    <main class="privacy-container">
+        <h1>Privacy Policy</h1>
 
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
+        <section>
+            <h2>1. Titolare del Trattamento</h2>
+            <p>Il Titolare del trattamento dei dati è l'<strong>ASD SPEED DOWN PROJECT</strong>, con sede legale in Via
+                Madonna Della Rocca, 14 - 88040 Settingiano (CZ). Per qualsiasi informazione o richiesta relativa alla
+                privacy è possibile contattare l'Associazione all'indirizzo email: <a
+                    href="mailto:speeddownproject@hotmail.it"
+                    style="color: var(--bright-red);">speeddownproject@hotmail.it</a>.</p>
+        </section>
 
-        <p>Stiamo definendo gli ultimi dettagli tecnici e le norme di sicurezza per il campionato 2026. L'obiettivo è
-            garantire una competizione leale e sicura per tutti i piloti in gara.</p>
+        <section>
+            <h2>2. Tipologia di Dati Trattati</h2>
+            <p>Attraverso questo sito web vengono trattati i seguenti dati:</p>
+            <ul>
+                <li><strong>Dati dei Piloti:</strong> Nome, cognome, età, categoria sportiva, provenienza geografica e
+                    materiale fotografico/video acquisito durante le manifestazioni sportive.</li>
+                <li><strong>Dati di Navigazione:</strong> Indirizzi IP o nomi a dominio dei computer utilizzati dagli
+                    utenti, orari delle richieste ed altri parametri relativi al sistema operativo (utilizzati a fini
+                    statistici anonimi).</li>
+                <li><strong>Dati forniti volontariamente:</strong> Email e nomi inviati tramite i recapiti di contatto
+                    presenti sul sito.</li>
+            </ul>
+        </section>
 
-        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 20px;">Tutte le categorie saranno aggiornate con i nuovi
-            pesi e le specifiche tecniche USACLI.</p>
+        <section>
+            <h2>3. Finalità del Trattamento</h2>
+            <p>I dati vengono trattati esclusivamente per le seguenti finalità:</p>
+            <ul>
+                <li>Gestione e promozione del Campionato Gravity Race 2026.</li>
+                <li>Pubblicazione di classifiche, profili degli atleti e materiale promozionale relativo alle attività
+                    dell'Associazione.</li>
+                <li>Risposta a richieste di informazioni inviate dagli utenti.</li>
+                <li>Adempimento di obblighi di legge o regolamentari legati all'attività sportiva e all'affiliazione
+                    agli enti di promozione sportiva (USACLI/CONI).</li>
+            </ul>
+        </section>
 
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <a href="index.html" class="history-link" style="color: white; border-color: rgba(255,255,255,0.3);">Torna
-                alla Home</a>
-            <a href="https://www.instagram.com/speeddownproject" target="_blank" class="history-link">Segui i
-                progressi</a>
+        <section>
+            <h2>4. Base Giuridica e Consenso</h2>
+            <p>Il trattamento dei dati dei piloti (inclusi i minori) si basa sul <strong>consenso esplicito</strong>
+                fornito tramite la firma della liberatoria e del modulo di iscrizione al campionato/associazione.</p>
+            <p>Per i dati di navigazione, la base giuridica è il legittimo interesse del Titolare a garantire il
+                corretto funzionamento del sito.</p>
+        </section>
+
+        <section>
+            <h2>5. Diritti degli Interessati</h2>
+            <p>In conformità al Regolamento UE 2016/679 (GDPR), l'utente ha il diritto di:</p>
+            <ul>
+                <li>Accedere ai propri dati e chiederne copia.</li>
+                <li>Chiedere la rettifica o la cancellazione degli stessi.</li>
+                <li>Opporsi al trattamento o chiederne la limitazione.</li>
+                <li>Revocare il consenso in qualsiasi momento (senza pregiudicare la liceità del trattamento basata sul
+                    consenso prima della revoca).</li>
+            </ul>
+            <p>Le richieste vanno inviate via email al Titolare del Trattamento.</p>
+        </section>
+
+        <div class="contact-box">
+            <p><strong>Nota importante sulle foto:</strong> Se desideri la rimozione di una foto specifica che ti ritrae
+                o che ritrae tuo figlio minore, contattaci immediatamente indicando la pagina e l'immagine. Provvederemo
+                alla rimozione nel più breve tempo possibile.</p>
         </div>
     </main>
 
@@ -550,57 +482,19 @@
         <div class="footer-inner">
             <div class="footer-col-about">
                 <div class="footer-title">La Nostra Storia</div>
-                <p style="margin-top: 15px; margin-bottom: 20px;">
-                    Scopri le radici di <strong>ASD Speed Down Project</strong>, dal sogno di Francesco Rotella nel 2009
-                    fino ai vertici del panorama nazionale USACLI.
-                </p>
-                <a href="storia.html" class="history-link">Scopri di piú</a>
+                <p>Scopri le radici di ASD Speed Down Project, dal sogno di Francesco Rotella nel 2009 fino ai vertici
+                    del panorama nazionale USACLI.</p>
             </div>
             <div class="footer-col-contact">
                 <div class="footer-title">Contatti</div>
-                <div class="footer-line strong">ASD SPEED DOWN PROJECT</div>
-                <div class="footer-line">Via Madonna Della Rocca, 14</div>
-                <div class="footer-line">88040 - Settingiano (CZ)</div>
-                <div class="footer-line">C.F. 97098810795</div>
-                <div class="footer-line"><a href="mailto:speeddownproject@hotmail.it">speeddownproject@hotmail.it</a>
-                </div>
-
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/groups/speeddownproject/" target="_blank"
-                        rel="noopener noreferrer" aria-label="Facebook Speed Down Project">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/speeddownproject" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                </div>
-                <div class="footer-line" style="margin-top: 15px; font-size: 11px;">
-                    <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
-                    <span style="margin: 0 6px; color: #555;">&bull;</span>
-                    <a href="tel:+393283881783" aria-label="Presidenza">Presidenza</a>
-                    <span style="margin: 0 6px; color: #555;">&bull;</span>
-                    <a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a>
-                </div>
+                <div class="footer-line">ASD SPEED DOWN PROJECT</div>
+                <div class="footer-line">speeddownproject@hotmail.it</div>
             </div>
         </div>
         <div class="site-credits">
             Created by <a href="mailto:giovanni.cafeo.gc@gmail.com">GIOVANNI CAFEO</a>
             <span class="separator">&bull;</span>
-            <a href="https://www.instagram.com/giovannicafeoo" target="_blank" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-            </a>
+            <a href="privacy.html">Privacy Policy</a>
         </div>
     </footer>
 
@@ -631,15 +525,6 @@
                     localStorage.setItem('cookies-accepted', 'true');
                 }
             });
-
-            var user = "speeddownproject";
-            var domain = "hotmail.it";
-            var email = user + "@" + domain;
-            var link = document.getElementById("footer-email");
-            if (link) {
-                link.href = "mailto:" + email;
-                link.textContent = "Contattaci";
-            }
         })();
 
         // Hamburger menu

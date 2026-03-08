@@ -634,6 +634,82 @@
                 margin-top: 20px;
             }
         }
+
+        /* COOKIE BANNER */
+        .cookie-banner {
+            position: fixed;
+            bottom: -150px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            z-index: 2000;
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-sizing: border-box;
+        }
+
+        .cookie-banner.show {
+            bottom: 0;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cookie-content p {
+            font-size: 12px;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .cookie-content a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .cookie-btn {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        .cookie-btn:hover {
+            background-color: white;
+            color: var(--accent-red);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .cookie-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -799,6 +875,8 @@
                     <a id="footer-email" href="#" aria-label="Contatta Gravity Race">Contattaci</a>
                     <span style="margin: 0 6px; color: #555;">&bull;</span>
                     <a href="tel:+393283881783" aria-label="Presidenza">Presidenza</a>
+                    <span style="margin: 0 6px; color: #555;">&bull;</span>
+                    <a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a>
                 </div>
             </div>
         </div>
@@ -814,8 +892,34 @@
         </div>
     </footer>
 
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito. Proseguendo la navigazione
+                acconsenti al loro utilizzo. <a href="privacy.html">Leggi la Privacy Policy</a></p>
+            <button id="accept-cookies" class="cookie-btn">Ho capito</button>
+        </div>
+    </div>
+
     <script>
         (function () {
+            // COOKIE BANNER LOGIC
+            if (!localStorage.getItem('cookies-accepted')) {
+                var banner = document.getElementById('cookie-banner');
+                if (banner) {
+                    setTimeout(function () {
+                        banner.classList.add('show');
+                    }, 1500);
+                }
+            }
+
+            document.getElementById('accept-cookies')?.addEventListener('click', function () {
+                var banner = document.getElementById('cookie-banner');
+                if (banner) {
+                    banner.classList.remove('show');
+                    localStorage.setItem('cookies-accepted', 'true');
+                }
+            });
+
             var user = "speeddownproject";
             var domain = "hotmail.it";
             var email = user + "@" + domain;
