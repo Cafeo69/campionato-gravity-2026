@@ -227,6 +227,52 @@
             border-radius: 0 8px 8px 0;
         }
 
+        .story-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .story-image-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .story-image-container:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-red);
+        }
+
+        .story-img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .story-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
         .history-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -603,13 +649,20 @@
 
         <section class="history-section">
             <h2>Dalle Strade di Casa ai Vertici Nazionali</h2>
-            <p>
-                La storia della <strong>Gravity Car</strong> non inizia in un ufficio, ma da un'intuizione di
-                <strong>Francesco Rotella</strong> nel 2009. Quella che era nata quasi per gioco — l'organizzazione di
-                una gara di carretti a cuscinetti a Settingiano — si è trasformata in una visione: portare in Calabria
-                e nel Sud Italia il fascino delle vetture in metallo ispirate alla <strong>Formula 1 degli anni
-                    '50</strong>.
-            </p>
+            <div class="story-intro-grid">
+                <div class="story-image-container">
+                    <img src="img/storia.jpeg" alt="Francesco Rotella 2009" class="story-img">
+                    <p class="image-caption">Francesco Rotella a bordo del suo primo mezzo in occasione della prima gara a Settingiano (anno 2009)</p>
+                </div>
+                <div class="story-text">
+                    <p>
+                        La storia di <strong>ASD Speed Down Project</strong> e del movimento <strong>Gravity Car</strong> non inizia in un ufficio di federazione, ma dall'asfalto rovente e da un sogno nato nel <strong>2009</strong>. Tutto partì con l'organizzazione di una gara di carretti a cuscinetti a Settingiano: una discesa percorsa con mezzi artigianali, dove la pura forza di gravità incontrava il coraggio di chi si lanciava giù per i tornanti. Da qui nacque tutto.
+                    </p>
+                    <p>
+                        A bordo del suo primo mezzo, spinto solo dalla forza di gravità e da una passione incrollabile, Francesco Rotella ha dato il via a quello che oggi è un movimento sportivo di livello nazionale.
+                    </p>
+                </div>
+            </div>
 
             <div class="highlight-box">
                 <p>
@@ -623,14 +676,12 @@
             <h2>L'Incontro che ha cambiato tutto</h2>
             <p>
                 La vera svolta avviene grazie a una ricerca online. Francesco entra in contatto con il mondo della
-                <strong>FIKS (Federazione Italiana Carretti Sportivi)</strong> e acquista la sua prima vera vettura:
+                <strong>Fics (Federazione Italiana Carretti Sportivi)</strong> e acquista la sua prima vera vettura:
                 la celebre macchinina bianca <strong>Abarth</strong>, che ancora oggi ispira il logo del campionato.
             </p>
             <p>
                 Da quel momento, la passione si trasforma in impegno istituzionale: in pochi anni, <strong>Francesco
-                    diventa responsabile per il Sud Italia e consigliere nazionale</strong>, collezionando numerosi
-                titoli
-                regionali e nazionali.
+                    diventa responsabile per il Sud Italia e consigliere nazionale</strong>, collezionando numerosi titoli regionali e nazionali. Oggigiorno, Francesco è riconosciuto come uno dei pochi esponenti di maggiore esperienza e competenza per questo sport, un vero punto di riferimento nazionale.
             </p>
         </section>
 
@@ -666,7 +717,7 @@
                         <div class="achievement-icon">🏆</div>
                         <div class="achievement-content">
                             <h3>Leadership</h3>
-                            <p>Dal 2023, Francesco Rotella ricopre il ruolo di Responsabile Nazionale USACLI.</p>
+                            <p>Dal 2023, Francesco Rotella ricopre il ruolo di Responsabile Nazionale USACLI per il Gravity Race Car.</p>
                         </div>
                     </li>
                 </ul>
